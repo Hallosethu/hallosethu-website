@@ -1,6 +1,6 @@
 // ===== FIREBASE AUTHENTICATION & USER MANAGEMENT =====
 // This script integrates Firebase with your existing Hallosethu login modal
-// No HTML changes needed - just pure functionality
+// Works with existing .modal-input class structure
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
@@ -20,133 +20,121 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// ===== LOCAL STORAGE BACKUP (For testing without Firestore) =====
+// ===== LOCAL STORAGE BACKUP =====
 const localUsers = JSON.parse(localStorage.getItem('hallosethu_users')) || {};
-
-// ===== MODAL ELEMENTS =====
-function getModalElements() {
-    return {
-        overlay: document.querySelector('.modal-overlay'),
-        modal: document.querySelector('.modal'),
-        closeBtn: document.querySelector('.modal-close'),
-        loginTab: document.querySelector('.modal-tabs .modal-tab:first-child'),
-        signupTab: document.querySelector('.modal-tabs .modal-tab:last-child'),
-        loginForm: document.querySelector('.modal-form:first-of-type') || createLoginForm(),
-        signupForm: document.querySelector('.modal-form:last-of-type') || createSignupForm(),
-        openLoginBtn: document.getElementById('openLogin') || document.querySelector('[id*="login"]'),
-        submitBtns: document.querySelectorAll('.modal-btn')
-    };
-}
-
-// ===== CREATE LOGIN FORM IF NOT EXISTS =====
-function createLoginForm() {
-    const form = document.createElement('form');
-    form.className = 'modal-form';
-    form.innerHTML = `
-        <input type="email" class="modal-input" id="loginEmail" placeholder="Email address" required>
-        <input type="password" class="modal-input" id="loginPassword" placeholder="Password" required>
-        <button type="submit" class="modal-btn">Login</button>
-        <div class="modal-divider">or</div>
-        <a href="#" class="forgot">Forgot password?</a>
-    `;
-    return form;
-}
-
-// ===== CREATE SIGNUP FORM IF NOT EXISTS =====
-function createSignupForm() {
-    const form = document.createElement('form');
-    form.className = 'modal-form';
-    form.style.display = 'none';
-    form.innerHTML = `
-        <input type="email" class="modal-input" id="signupEmail" placeholder="Email address" required>
-        <input type="tel" class="modal-input" id="signupMobile" placeholder="Mobile number" pattern="[0-9]{10}" required>
-        <input type="password" class="modal-input" id="signupPassword" placeholder="Password (min 6 chars)" minlength="6" required>
-        <input type="password" class="modal-input" id="signupConfirmPassword" placeholder="Confirm password" required>
-        <button type="submit" class="modal-btn">Sign Up</button>
-    `;
-    return form;
-}
 
 // ===== INITIALIZE AUTH UI =====
 function initAuthUI() {
-    const elements = getModalElements();
+    const overlay = document.querySelector('.modal-overlay');
+    const openLoginBtn = document.getElementById('openLogin');
+    const closeBtn = document.querySelector('.modal-close');
+    const tabs = document.querySelectorAll('.modal-tab');
+    const submitBtns = document.querySelectorAll('.modal-btn');
 
     // Open login modal
-    if (elements.openLoginBtn) {
-        elements.openLoginBtn.addEventListener('click', (e) => {
+    if (openLoginBtn) {
+        openLoginBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            elements.overlay.classList.add('open');
+            overlay?.classList.add('open');
         });
     }
 
     // Close modal
-    if (elements.closeBtn) {
-        elements.closeBtn.addEventListener('click', () => {
-            elements.overlay.classList.remove('open');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            overlay?.classList.remove('open');
         });
     }
-    if (elements.overlay) {
-        elements.overlay.addEventListener('click', (e) => {
-            if (e.target === elements.overlay) {
-                elements.overlay.classList.remove('open');
+
+    if (overlay) {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('open');
             }
         });
     }
 
     // Tab switching
-    if (elements.loginTab && elements.signupTab) {
-        elements.loginTab.addEventListener('click', () => switchAuthTab('login'));
-        elements.signupTab.addEventListener('click', () => switchAuthTab('signup'));
+    if (tabs.length >= 2) {
+        tabs[0].addEventListener('click', () => switchTab('login', tabs));
+        tabs[1].addEventListener('click', () => switchTab('signup', tabs));
     }
 
-    // Form submission
-    elements.submitBtns.forEach((btn, idx) => {
-        btn.addEventListener('click', (e) => {
+    // Form submission - prevent default and handle
+    if (submitBtns.length > 0) {
+        submitBtns[0].addEventListener('click', (e) => {
             e.preventDefault();
-            if (idx === 0) handleLogin();
-            else handleSignup();
+            handleLogin();
         });
-    });
+        if (submitBtns.length > 1) {
+            submitBtns[1].addEventListener('click', (e) => {
+                e.preventDefault();
+                handleSignup();
+            });
+        }
+    }
 }
 
 // ===== SWITCH TABS =====
-function switchAuthTab(tab) {
-    const elements = getModalElements();
-    
+function switchTab(tab, tabs) {
+    const forms = document.querySelectorAll('.modal-form');
+
     if (tab === 'login') {
-        elements.loginTab.classList.add('active');
-        elements.signupTab.classList.remove('active');
-        elements.loginForm.style.display = 'flex';
-        elements.signupForm.style.display = 'none';
+        tabs[0].classList.add('active');
+        tabs[1].classList.remove('active');
+        if (forms[0]) forms[0].style.display = 'flex';
+        if (forms[1]) forms[1].style.display = 'none';
     } else {
-        elements.loginTab.classList.remove('active');
-        elements.signupTab.classList.add('active');
-        elements.loginForm.style.display = 'none';
-        elements.signupForm.style.display = 'flex';
+        tabs[0].classList.remove('active');
+        tabs[1].classList.add('active');
+        if (forms[0]) forms[0].style.display = 'none';
+        if (forms[1]) forms[1].style.display = 'flex';
     }
+}
+
+// ===== GET ACTIVE FORM INPUTS =====
+function getActiveFormInputs() {
+    const forms = document.querySelectorAll('.modal-form');
+    
+    // Find which form is visible
+    for (let form of forms) {
+        if (form.style.display !== 'none') {
+            return form.querySelectorAll('.modal-input');
+        }
+    }
+    
+    return [];
 }
 
 // ===== HANDLE LOGIN =====
 async function handleLogin() {
-    const email = document.getElementById('loginEmail')?.value;
-    const password = document.getElementById('loginPassword')?.value;
+    const inputs = getActiveFormInputs();
+    
+    if (inputs.length < 2) {
+        showAlert('Form inputs not found. Please refresh the page.', 'error');
+        return;
+    }
+
+    const email = inputs[0]?.value?.trim() || '';
+    const password = inputs[1]?.value?.trim() || '';
 
     if (!email || !password) {
-        showAlert('Please fill all fields', 'error');
+        showAlert('Please enter email and password', 'error');
         return;
     }
 
     try {
         // Try Firebase first
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log('Firebase login successful:', userCredential.user.uid);
+        showAlert('✅ Login successful! Welcome back!', 'success');
         
-        showAlert('Login successful! Welcome back!', 'success');
         setTimeout(() => {
             document.querySelector('.modal-overlay')?.classList.remove('open');
             location.reload();
         }, 1500);
     } catch (firebaseError) {
+        console.log('Firebase error:', firebaseError.code);
+        
         // Fallback to local storage
         if (localUsers[email] && localUsers[email].password === password) {
             localStorage.setItem('hallosethu_current_user', JSON.stringify({
@@ -154,36 +142,48 @@ async function handleLogin() {
                 mobile: localUsers[email].mobile,
                 loginTime: new Date().toLocaleString()
             }));
-            showAlert('Login successful!', 'success');
+            showAlert('✅ Login successful!', 'success');
             setTimeout(() => {
                 document.querySelector('.modal-overlay')?.classList.remove('open');
                 location.reload();
             }, 1500);
         } else {
-            showAlert('Invalid email or password', 'error');
+            showAlert('❌ Invalid email or password', 'error');
         }
     }
 }
 
 // ===== HANDLE SIGNUP =====
 async function handleSignup() {
-    const email = document.getElementById('signupEmail')?.value;
-    const mobile = document.getElementById('signupMobile')?.value;
-    const password = document.getElementById('signupPassword')?.value;
-    const confirmPassword = document.getElementById('signupConfirmPassword')?.value;
+    const inputs = getActiveFormInputs();
+    
+    if (inputs.length < 4) {
+        showAlert('Form inputs not found. Please refresh the page.', 'error');
+        return;
+    }
+
+    const email = inputs[0]?.value?.trim() || '';
+    const mobile = inputs[1]?.value?.trim() || '';
+    const password = inputs[2]?.value?.trim() || '';
+    const confirmPassword = inputs[3]?.value?.trim() || '';
 
     if (!email || !mobile || !password || !confirmPassword) {
-        showAlert('Please fill all fields', 'error');
+        showAlert('❌ Please fill all fields', 'error');
+        return;
+    }
+
+    if (password.length < 6) {
+        showAlert('❌ Password must be at least 6 characters', 'error');
         return;
     }
 
     if (password !== confirmPassword) {
-        showAlert('Passwords do not match', 'error');
+        showAlert('❌ Passwords do not match', 'error');
         return;
     }
 
     if (localUsers[email]) {
-        showAlert('Email already registered', 'error');
+        showAlert('❌ Email already registered', 'error');
         return;
     }
 
@@ -192,20 +192,20 @@ async function handleSignup() {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         console.log('Firebase signup successful:', userCredential.user.uid);
     } catch (firebaseError) {
-        console.log('Firebase signup failed, using local storage:', firebaseError.message);
+        console.log('Firebase signup note:', firebaseError.message);
     }
 
     // Save to local storage as backup
     localUsers[email] = { password, mobile };
     localStorage.setItem('hallosethu_users', JSON.stringify(localUsers));
 
-    showAlert('Account created! Please login now.', 'success');
+    showAlert('✅ Account created! Please login now.', 'success');
     setTimeout(() => {
-        document.getElementById('signupEmail').value = '';
-        document.getElementById('signupMobile').value = '';
-        document.getElementById('signupPassword').value = '';
-        document.getElementById('signupConfirmPassword').value = '';
-        switchAuthTab('login');
+        // Clear signup form
+        document.querySelectorAll('.modal-input').forEach(input => input.value = '');
+        // Switch to login tab
+        const tabs = document.querySelectorAll('.modal-tab');
+        switchTab('login', tabs);
     }, 1500);
 }
 
@@ -213,64 +213,57 @@ async function handleSignup() {
 function handleLogout() {
     signOut(auth).catch(() => {});
     localStorage.removeItem('hallosethu_current_user');
-    showAlert('Logged out successfully', 'success');
+    showAlert('✅ Logged out successfully', 'success');
     setTimeout(() => location.reload(), 1000);
 }
 
 // ===== CHECK AUTH STATE & UPDATE UI =====
 onAuthStateChanged(auth, (user) => {
-    const overlay = document.querySelector('.modal-overlay');
-    const loginTab = document.querySelector('.modal-tabs .modal-tab:first-child');
-    const signupTab = document.querySelector('.modal-tabs .modal-tab:last-child');
     const navLoginBtn = document.getElementById('openLogin');
 
     if (user) {
-        // User is logged in
+        // User is logged in via Firebase
         const userData = {
             email: user.email,
             mobile: localUsers[user.email]?.mobile || 'N/A',
             uid: user.uid
         };
         
-        // Update nav button
-        if (navLoginBtn) {
-            navLoginBtn.innerHTML = `<i class="fa-solid fa-user-check"></i> ${user.email}`;
-            navLoginBtn.onclick = handleLogout;
-            navLoginBtn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-        }
-
-        // Store user data
+        updateNavButton(navLoginBtn, userData);
         localStorage.setItem('hallosethu_current_user', JSON.stringify(userData));
-        
-        console.log('User logged in:', userData);
+        console.log('User logged in:', userData.email);
     } else {
-        // User is logged out
+        // Check local storage
         const localUser = JSON.parse(localStorage.getItem('hallosethu_current_user'));
         
         if (localUser) {
-            // Show local user as logged in
-            if (navLoginBtn) {
-                navLoginBtn.innerHTML = `<i class="fa-solid fa-user-check"></i> ${localUser.email}`;
-                navLoginBtn.onclick = () => {
-                    localStorage.removeItem('hallosethu_current_user');
-                    showAlert('Logged out', 'success');
-                    setTimeout(() => location.reload(), 1000);
-                };
-                navLoginBtn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-            }
+            updateNavButton(navLoginBtn, localUser);
+            console.log('Local user active:', localUser.email);
         } else {
-            // Show login button
+            // Not logged in - reset button
             if (navLoginBtn) {
                 navLoginBtn.innerHTML = '<i class="fa-regular fa-user"></i> Login / Signup';
-                navLoginBtn.onclick = (e) => {
-                    e.preventDefault();
-                    if (overlay) overlay.classList.add('open');
-                };
                 navLoginBtn.style.background = 'linear-gradient(135deg, var(--blue), var(--blue-light))';
+                navLoginBtn.style.cursor = 'pointer';
             }
         }
     }
 });
+
+// ===== UPDATE NAV BUTTON =====
+function updateNavButton(btn, userData) {
+    if (!btn) return;
+
+    btn.innerHTML = `<i class="fa-solid fa-user-check"></i> ${userData.email}`;
+    btn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+    btn.style.cursor = 'pointer';
+    btn.onclick = (e) => {
+        e.preventDefault();
+        if (confirm('Do you want to logout?')) {
+            handleLogout();
+        }
+    };
+}
 
 // ===== ALERT HELPER =====
 function showAlert(message, type = 'info') {
@@ -287,7 +280,10 @@ function showAlert(message, type = 'info') {
             padding: 15px 20px;
             border-radius: 8px;
             font-weight: 600;
+            font-size: 14px;
+            max-width: 300px;
             animation: slideIn 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         `;
         document.body.appendChild(alertDiv);
     }
@@ -299,20 +295,22 @@ function showAlert(message, type = 'info') {
     };
 
     alertDiv.textContent = message;
-    alertDiv.style.background = colors[type].bg;
-    alertDiv.style.color = colors[type].text;
+    alertDiv.style.background = colors[type]?.bg || colors.info.bg;
+    alertDiv.style.color = colors[type]?.text || colors.info.text;
     alertDiv.style.display = 'block';
 
     setTimeout(() => {
         alertDiv.style.display = 'none';
-    }, 3000);
+    }, 4000);
 }
 
 // ===== INITIALIZE ON PAGE LOAD =====
-document.addEventListener('DOMContentLoaded', initAuthUI);
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Initializing Firebase Auth...');
+    initAuthUI();
+});
 
 // ===== EXPORT FUNCTIONS FOR GLOBAL ACCESS =====
 window.handleLogin = handleLogin;
 window.handleSignup = handleSignup;
 window.handleLogout = handleLogout;
-window.switchAuthTab = switchAuthTab;

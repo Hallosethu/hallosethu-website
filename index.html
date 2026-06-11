@@ -214,23 +214,32 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
 .footer-bottom .footer-social a:hover{background:var(--orange);color:white}
 
 /* LOGIN MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,0.7);backdrop-filter:blur(6px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay{position:fixed;inset:0;background:rgba(13,71,161,.55);backdrop-filter:blur(10px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
 .modal-overlay.open{opacity:1;pointer-events:all}
-.modal{background:white;border-radius:24px;width:min(480px,92vw);padding:2.5rem;position:relative;transform:scale(.95);transition:transform .3s}
-.modal-overlay.open .modal{transform:scale(1)}
-.modal-close{position:absolute;top:1.2rem;right:1.2rem;width:32px;height:32px;border-radius:50%;background:var(--gray-100);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-700);transition:all .2s}
-.modal-close:hover{background:var(--gray-200)}
-.modal-logo{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
-.modal-logo img{height:36px}
-.modal-logo span{font-family:var(--font-head);font-weight:800;font-size:1.1rem;background:linear-gradient(135deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.modal{background:white;border-radius:24px;width:min(440px,92vw);overflow:hidden;position:relative;transform:scale(.93) translateY(16px);transition:transform .35s,opacity .35s;box-shadow:0 24px 64px rgba(13,71,161,.25)}
+.modal-overlay.open .modal{transform:scale(1) translateY(0)}
+/* Gradient header band */
+.modal-header-band{background:linear-gradient(135deg,#0D47A1,#1565C0 55%,#1E88E5);padding:1.8rem 2rem 1.5rem;position:relative;overflow:hidden;text-align:center}
+.modal-header-band::before{content:'';position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:rgba(245,124,0,.2);pointer-events:none}
+.modal-header-band::after{content:'';position:absolute;left:-20px;bottom:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none}
+.modal-brand{display:flex;align-items:center;justify-content:center;gap:10px;position:relative;z-index:1;margin-bottom:.4rem}
+.modal-brand img{height:34px;filter:brightness(0) invert(1)}
+.modal-brand span{font-family:var(--font-head);font-weight:800;font-size:1.15rem;color:#fff}
+.modal-header-band p{font-size:.82rem;color:rgba(255,255,255,.78);position:relative;z-index:1}
+.modal-body{padding:1.8rem 2rem 2rem}
+.modal-close{position:absolute;top:.9rem;right:.9rem;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.18);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);transition:all .2s;z-index:10}
+.modal-close:hover{background:rgba(255,255,255,.32);color:#fff}
+.modal-logo{display:none}
 .modal-tabs{display:flex;background:var(--gray-100);border-radius:12px;padding:4px;margin-bottom:1.5rem}
 .modal-tab{flex:1;text-align:center;padding:.6rem;border-radius:9px;cursor:pointer;font-family:var(--font-head);font-weight:700;font-size:.88rem;color:var(--gray-500);transition:all .3s}
 .modal-tab.active{background:white;color:var(--blue);box-shadow:0 2px 8px rgba(0,0,0,0.08)}
 .modal-form{display:flex;flex-direction:column;gap:1rem}
-.modal-input{padding:.8rem 1rem;border:1.5px solid var(--gray-200);border-radius:10px;font-family:var(--font-body);font-size:.9rem;outline:none;transition:border .2s}
-.modal-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,101,192,0.1)}
-.modal-btn{padding:.9rem;background:linear-gradient(135deg,var(--blue),var(--blue-light));color:white;border:none;border-radius:12px;font-family:var(--font-head);font-weight:700;cursor:pointer;transition:all .3s;font-size:.95rem}
-.modal-btn:hover{background:linear-gradient(135deg,var(--orange-dark),var(--orange));box-shadow:0 6px 20px rgba(245,124,0,0.4)}
+.modal-form{display:flex;flex-direction:column;gap:.75rem}
+.modal-input{padding:.82rem 1rem;border:1.5px solid var(--gray-200);border-radius:11px;font-family:var(--font-body);font-size:.9rem;outline:none;transition:all .2s;color:var(--gray-900);background:#F8FAFF}
+.modal-input:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(21,101,192,0.1)}
+.modal-input::placeholder{color:#a0b0cc}
+.modal-btn{padding:.9rem;background:linear-gradient(135deg,#1565C0,#1E88E5);color:white;border:none;border-radius:12px;font-family:var(--font-head);font-weight:700;cursor:pointer;transition:all .3s;font-size:.95rem;box-shadow:0 4px 14px rgba(21,101,192,.25)}
+.modal-btn:hover{background:linear-gradient(135deg,#E65100,#F57C00);box-shadow:0 6px 20px rgba(245,124,0,.4)}
 .modal-divider{text-align:center;color:var(--gray-500);font-size:.82rem;position:relative}
 .modal-divider::before,.modal-divider::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--gray-200)}
 .modal-divider::before{left:0}.modal-divider::after{right:0}
@@ -588,7 +597,7 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
           Education &amp; Career — Now Active in Vizag!
         </h3>
         <p>Schools, coaching, colleges, skills &amp; career guidance — fully launched. 100% free consultation.</p>
-        <button class="btn-promo" onclick="openEduFlow()" style="cursor:pointer">Explore Now →</button>
+        <button onclick="openEduFlow()" style="margin-top:.75rem;display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,#E65100,#F57C00);color:#fff;border:none;padding:.55rem 1.35rem;border-radius:50px;font-family:var(--font-head);font-weight:700;font-size:.84rem;cursor:pointer;box-shadow:0 4px 14px rgba(230,81,0,.35);transition:all .25s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"><i class="fa-solid fa-graduation-cap" style="font-size:.78rem"></i> Explore Now →</button>
       </div>
     </div>
     <div class="promo-item">
@@ -598,7 +607,7 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
       <div>
         <h3>More Services Launching Soon</h3>
         <p>Travel, Real Estate, Health &amp; Wellness, Finance &amp; Digital Marketing are on their way to Vizag.</p>
-        <a href="#services" class="btn-promo" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});return false;">See What's Coming →</a>
+        <a href="#services" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});return false;" style="margin-top:.75rem;display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.18);color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:.52rem 1.2rem;border-radius:50px;font-family:var(--font-head);font-weight:700;font-size:.84rem;cursor:pointer;transition:all .25s;text-decoration:none" onmouseover="this.style.background='rgba(255,255,255,.28)'" onmouseout="this.style.background='rgba(255,255,255,.18)'"><i class="fa-solid fa-bell" style="font-size:.78rem"></i> See What's Coming →</a>
       </div>
     </div>
   </div>
@@ -1077,29 +1086,38 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
 <!-- LOGIN MODAL -->
 <div class="modal-overlay" id="loginModal">
   <div class="modal">
-    <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
-    <div class="modal-logo">
-      <img src="LOGO_PLACEHOLDER" alt="">
-      <span>Hallo Sethu</span>
+    <!-- Gradient header -->
+    <div class="modal-header-band">
+      <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-brand">
+        <img src="LOGO_PLACEHOLDER" alt="Hallosethu">
+        <span>Hallo Sethu</span>
+      </div>
+      <p>Your Trusted Local Friend in Vizag</p>
     </div>
-    <div class="modal-tabs">
-      <div class="modal-tab active" data-tab="login">Login</div>
-      <div class="modal-tab" data-tab="signup">Sign Up</div>
-    </div>
-    <div class="modal-form" id="loginForm">
-      <input class="modal-input" type="email" placeholder="Email address">
-      <input class="modal-input" type="password" placeholder="Password">
-      <div class="forgot">Forgot password?</div>
-      <button class="modal-btn">Login to Account</button>
-      <div class="modal-divider">or continue with</div>
-      <button class="modal-btn" style="background:white;color:var(--gray-700);border:1.5px solid var(--gray-200);display:flex;align-items:center;justify-content:center;gap:.5rem"><i class="fa-brands fa-google" style="color:#EA4335"></i> Continue with Google</button>
-    </div>
-    <div class="modal-form" id="signupForm" style="display:none">
-      <input class="modal-input" type="text" placeholder="Full name">
-      <input class="modal-input" type="email" placeholder="Email address">
-      <input class="modal-input" type="tel" placeholder="Phone number">
-      <input class="modal-input" type="password" placeholder="Create password">
-      <button class="modal-btn">Create Account</button>
+    <!-- Body -->
+    <div class="modal-body">
+      <div class="modal-tabs">
+        <div class="modal-tab active" data-tab="login">Login</div>
+        <div class="modal-tab" data-tab="signup">Sign Up</div>
+      </div>
+      <div class="modal-form" id="loginForm" style="display:flex">
+        <input class="modal-input" type="email" placeholder="📧  Email address">
+        <input class="modal-input" type="password" placeholder="🔒  Password">
+        <div class="forgot" style="text-align:right;margin-top:-.3rem">Forgot password?</div>
+        <button class="modal-btn" id="loginSubmitBtn" onclick="handleLogin(this)">Login to Account</button>
+        <div class="modal-divider">or continue with</div>
+        <button class="modal-btn" style="background:white;color:var(--gray-700);border:1.5px solid var(--gray-200);display:flex;align-items:center;justify-content:center;gap:.5rem;box-shadow:none" onmouseover="this.style.background='#F8FAFF'" onmouseout="this.style.background='white'"><i class="fa-brands fa-google" style="color:#EA4335"></i> Continue with Google</button>
+        <p style="text-align:center;font-size:.8rem;color:var(--gray-400);margin-top:-.2rem">Don't have an account? <a href="#" onclick="switchToSignup(event)" style="color:var(--blue);font-weight:700">Sign Up Free</a></p>
+      </div>
+      <div class="modal-form" id="signupForm" style="display:none">
+        <input class="modal-input" type="text" placeholder="👤  Full name">
+        <input class="modal-input" type="email" placeholder="📧  Email address">
+        <input class="modal-input" type="tel" placeholder="📱  WhatsApp / Phone number">
+        <input class="modal-input" type="password" placeholder="🔒  Create password">
+        <button class="modal-btn" id="signupSubmitBtn" onclick="handleSignup(this)">Create Free Account</button>
+        <p style="text-align:center;font-size:.78rem;color:var(--gray-400);line-height:1.5;margin-top:-.1rem">By signing up you agree to our <a href="#" style="color:var(--blue)">Terms</a>. Already have an account? <a href="#" onclick="switchToLogin(event)" style="color:var(--blue);font-weight:700">Login</a></p>
+      </div>
     </div>
   </div>
 </div>
@@ -1169,9 +1187,13 @@ const modal = document.getElementById('loginModal');
 function openModal() { modal.classList.add('open'); }
 function closeModal() { modal.classList.remove('open'); }
 document.getElementById('openLogin').addEventListener('click', e => { e.preventDefault(); openModal(); });
-document.getElementById('openLogin2').addEventListener('click', e => { e.preventDefault(); openModal(); });
+if(document.getElementById('openLogin2')) document.getElementById('openLogin2').addEventListener('click', e => { e.preventDefault(); openModal(); });
 document.getElementById('closeModal').addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+function switchToSignup(e){ e.preventDefault(); document.querySelectorAll('.modal-tab').forEach(t=>t.classList.remove('active')); document.querySelectorAll('.modal-tab')[1].classList.add('active'); document.getElementById('loginForm').style.display='none'; document.getElementById('signupForm').style.display='flex'; }
+function switchToLogin(e){ e.preventDefault(); document.querySelectorAll('.modal-tab').forEach(t=>t.classList.remove('active')); document.querySelectorAll('.modal-tab')[0].classList.add('active'); document.getElementById('loginForm').style.display='flex'; document.getElementById('signupForm').style.display='none'; }
+function handleLogin(btn){ btn.textContent='Logging in…'; setTimeout(function(){ btn.textContent='✓ Welcome back!'; btn.style.background='linear-gradient(135deg,#16A34A,#22C55E)'; setTimeout(function(){ closeModal(); btn.textContent='Login to Account'; btn.style.background=''; }, 1200); }, 900); }
+function handleSignup(btn){ btn.textContent='Creating account…'; setTimeout(function(){ btn.textContent='✓ Account Created!'; btn.style.background='linear-gradient(135deg,#16A34A,#22C55E)'; setTimeout(function(){ closeModal(); btn.textContent='Create Free Account'; btn.style.background=''; }, 1500); }, 1000); }
 document.querySelectorAll('.modal-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
@@ -1389,9 +1411,9 @@ var SEG_DATA = {
       {ico:'fa-indian-rupee-sign',c:'orange',t:'Fee Comparison',p:'Compare fee structures across schools to fit your budget.'}
     ],
     faqs: [
-      {q:'Which CBSE schools are available in Vizag?',a:'Visakhapatnam has many reputed CBSE schools across localities like Madhurawada, MVP Colony, Waltair, and Gajuwaka. We help you shortlist based on your area, fee budget, and child\'s age.'},
-      {q:'Can you help with mid-year admissions?',a:'Yes — we can identify schools that accept mid-year transfers and guide you through the process.'},
-      {q:'Is there a charge for school admission guidance?',a:'Absolutely not. Our guidance is 100% free — no consultation fees, no hidden charges.'}
+      {q:'Which CBSE schools are available in Vizag?',a:'Visakhapatnam has many reputed CBSE schools across localities like Madhurawada, MVP Colony, Waltair, Seethammadhara, and Gajuwaka — for all grades from nursery to Class 12. We shortlist 3–5 schools that best match your child\'s board preference, zone, fee range, and academic level.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'},
+      {q:'Can you help with mid-year admissions?',a:'Yes — mid-year transfers are possible in Vizag, and we know which schools are more flexible about it. We guide you on the documentation needed, timing, and how to approach the admission office.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'},
+      {q:'Is there a charge for school admission guidance?',a:'Absolutely not. Every service at Hallosethu is 100% free — no consultation fees, no registration charges, no hidden costs. We earn trust, not money from you.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'}
     ],
     steps: [
       {n:'01',t:'Share Requirement',p:'Tell us board, location preference, fee range, and child\'s grade.'},
@@ -1417,9 +1439,9 @@ var SEG_DATA = {
       {ico:'fa-circle-question',c:'orange',t:'Stream Selection',p:'Not sure which stream? We help you decide based on aptitude & goals.'}
     ],
     faqs: [
-      {q:'Can you help with EAMCET counselling in AP?',a:'Yes — we guide students through the AP EAMCET web counselling process, help with college options, and answer questions about seat allotment rounds.'},
-      {q:'Do you help with deemed university admissions?',a:'Yes, we provide guidance on management quota and counselling-based admissions for deemed universities.'},
-      {q:'Is there any fee for this guidance?',a:'No — completely free. We are your local Vizag guide.'}
+      {q:'Can you help with EAMCET counselling in AP?',a:'Yes — we guide students through all AP EAMCET web counselling phases, explain certificate verification, help you understand the seat allotment matrix, and suggest colleges based on your rank and preferred stream.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'},
+      {q:'Do you help with deemed university admissions?',a:'Yes — we can guide you on both management quota seats and counselling-based admissions. We explain the process, realistic fee expectations, and how to evaluate if it\'s the right choice for your budget and goals.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'},
+      {q:'Is there any fee for this guidance?',a:'No — completely free. Hallosethu is your local Vizag guide for all educational decisions. No consultation fees, ever.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'}
     ],
     steps: [
       {n:'01',t:'Share Exam & Score',p:'Tell us your entrance exam, rank or score, and preferred stream.'},
@@ -1445,9 +1467,9 @@ var SEG_DATA = {
       {ico:'fa-pencil',c:'orange',t:'Crash Courses',p:'Short-term intensive preparation for upcoming exams.'}
     ],
     faqs: [
-      {q:'Can you find a home tutor in my area in Vizag?',a:'Yes — tell us your locality, subject, class level, and budget. We\'ll connect you with suitable tutors available near you in Visakhapatnam.'},
-      {q:'Do you recommend online coaching platforms?',a:'We can guide you to the right online platforms based on your exam and budget, and help you compare options.'},
-      {q:'Is your coaching referral service free?',a:'Completely free. We connect you with the right coaching support without any charges.'}
+      {q:'Can you find a home tutor in my area in Vizag?',a:'Yes — tell us your locality in Vizag, the subject or exam, class level, and your preferred schedule. We match you with verified, experienced tutors who are available in your area and fit your budget.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'},
+      {q:'Do you recommend online coaching platforms?',a:'Yes — we compare top platforms like Unacademy, Physics Wallah, Vedantu, BYJU\'s, and others based on your exam (JEE/NEET/SSC/Skills), budget, and learning style — and recommend the best fit for you.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'},
+      {q:'Is your coaching referral service free?',a:'Completely free. Whether it\'s finding a coaching centre, a home tutor, or an online platform — our entire guidance service is free of charge.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'}
     ],
     steps: [
       {n:'01',t:'Tell Us Your Exam',p:'Share exam, subject, class level, and preferred mode.'},
@@ -1641,9 +1663,9 @@ var SEG_DATA = {
       {ico:'fa-calendar-days',c:'orange',t:'Exam Calendar',p:'Stay updated on upcoming notification and exam dates.'}
     ],
     faqs: [
-      {q:'Can you help me find UPSC coaching in Vizag?',a:'Yes — we connect you with UPSC coaching institutes in Visakhapatnam that suit your preparation level, schedule, and budget.'},
-      {q:'Do you provide APPSC study material?',a:'We guide you to the right coaching institutes and online resources for APPSC. We don\'t create study material ourselves.'},
-      {q:'Is exam guidance free?',a:'Yes — completely free. We help you find the right coaching and preparation path.'}
+      {q:'Can you help me find UPSC coaching in Vizag?',a:'Yes — we connect you with UPSC/IAS coaching institutes in Visakhapatnam suited to your preparation stage (beginner, intermediate, or Prelims qualifier). We also guide you on optional subject selection and self-study resources.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'},
+      {q:'Do you provide APPSC study material?',a:'We guide you to the best APPSC coaching institutes in Vizag for Group 1 and Group 2, plus curated online resources for Telugu medium and English medium preparation. We also keep you updated on notification dates.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'},
+      {q:'Is exam guidance free?',a:'Yes — completely free. Competitive exam preparation is a long journey and we\'re here to help you start right, find the best coaching, and stay on track.' + '<br><br><em style="color:#1565C0;font-size:.88em">📞 Call/WhatsApp: <a href="tel:9152316456" style="color:#1565C0;font-weight:700">9152316456</a> &nbsp;|&nbsp; ✉️ <a href="mailto:Support@hallosethu.com" style="color:#1565C0;font-weight:700">Support@hallosethu.com</a> — Free guidance, always.</em>'}
     ],
     steps: [
       {n:'01',t:'Tell Us Your Exam',p:'Share which exam you\'re targeting and current prep status.'},

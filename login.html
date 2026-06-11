@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hallosethu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: #666;
+        }
+
+        .tab-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-bottom: 15px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-switch {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-switch a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .form-switch a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-message {
+            background: #efe;
+            color: #3c3;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .user-info {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .user-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .user-info p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .logout-btn {
+            width: 100%;
+            padding: 10px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .logout-btn:hover {
+            background: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>🔐 Hallosethu</h1>
+            <p>Welcome to Hallosethu Official Website</p>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <div class="form-tabs">
+            <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+            <button class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="form-section active" id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="submit-btn" id="loginBtn">
+                <span id="loginBtnText">Login</span>
+            </button>
+
+            <div class="form-switch">
+                Don't have an account? <a onclick="switchTab('signup')">Sign Up here</a>
+            </div>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form class="form-section" id="signupForm" onsubmit="handleSignup(event)">
+            <div class="form-group">
+                <label for="signupEmail">Email Address</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signupMobile">Mobile Number</label>
+                <input type="tel" id="signupMobile" placeholder="Enter your mobile number (10 digits)" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" placeholder="Enter a strong password" minlength="6" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signupConfirmPassword">Confirm Password</label>
+                <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required>
+            </div>
+
+            <button type="submit" class="submit-btn" id="signupBtn">
+                <span id="signupBtnText">Sign Up</span>
+            </button>
+
+            <div class="form-switch">
+                Already have an account? <a onclick="switchTab('login')">Login here</a>
+            </div>
+        </form>
+
+        <!-- User Info Section -->
+        <div class="user-info" id="userInfo">
+            <h3>✅ Welcome!</h3>
+            <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+            <p><strong>Mobile:</strong> <span id="displayMobile"></span></p>
+            <p><strong>User ID:</strong> <span id="displayUID"></span></p>
+            <button class="logout-btn" onclick="handleLogout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        import { getFirestore, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyDSkTbm5e77JG7CrpY4Cqm-J8RrekiX9h4",
+            authDomain: "hallosethu-users.firebaseapp.com",
+            projectId: "hallosethu-users",
+            storageBucket: "hallosethu-users.firebasestorage.app",
+            messagingSenderId: "253018772733",
+            appId: "1:253018772733:web:f44e8453617007eeca9a94",
+            measurementId: "G-KFD9FGMN1C"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Make functions globally accessible
+        window.switchTab = switchTab;
+        window.handleLogin = handleLogin;
+        window.handleSignup = handleSignup;
+        window.handleLogout = handleLogout;
+
+        // Switch between Login and Sign Up tabs
+        function switchTab(tab) {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const tabs = document.querySelectorAll('.tab-btn');
+
+            if (tab === 'login') {
+                loginForm.classList.add('active');
+                signupForm.classList.remove('active');
+                tabs[0].classList.add('active');
+                tabs[1].classList.remove('active');
+            } else {
+                loginForm.classList.remove('active');
+                signupForm.classList.add('active');
+                tabs[0].classList.remove('active');
+                tabs[1].classList.add('active');
+            }
+            clearMessages();
+        }
+
+        // Handle Login
+        async function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const loginBtnText = document.getElementById('loginBtnText');
+
+            try {
+                loginBtn.disabled = true;
+                loginBtnText.innerHTML = '<span class="loading"></span>';
+
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                showSuccess('Login successful! Welcome back!');
+                setTimeout(() => {
+                    document.getElementById('loginForm').reset();
+                }, 1000);
+            } catch (error) {
+                showError('Login failed: ' + error.message);
+            } finally {
+                loginBtn.disabled = false;
+                loginBtnText.textContent = 'Login';
+            }
+        }
+
+        // Handle Sign Up
+        async function handleSignup(event) {
+            event.preventDefault();
+            const email = document.getElementById('signupEmail').value;
+            const mobile = document.getElementById('signupMobile').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            const signupBtn = document.getElementById('signupBtn');
+            const signupBtnText = document.getElementById('signupBtnText');
+
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                showError('Passwords do not match!');
+                return;
+            }
+
+            try {
+                signupBtn.disabled = true;
+                signupBtnText.innerHTML = '<span class="loading"></span>';
+
+                // Create user with Firebase Auth
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Store user data in Firestore
+                await addDoc(collection(db, 'users'), {
+                    uid: user.uid,
+                    email: email,
+                    mobile: mobile,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                });
+
+                showSuccess('Account created successfully! Please login.');
+                setTimeout(() => {
+                    document.getElementById('signupForm').reset();
+                    switchTab('login');
+                }, 2000);
+            } catch (error) {
+                showError('Sign up failed: ' + error.message);
+            } finally {
+                signupBtn.disabled = false;
+                signupBtnText.textContent = 'Sign Up';
+            }
+        }
+
+        // Handle Logout
+        async function handleLogout() {
+            try {
+                await signOut(auth);
+                showSuccess('Logged out successfully!');
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            } catch (error) {
+                showError('Logout failed: ' + error.message);
+            }
+        }
+
+        // Check authentication state
+        onAuthStateChanged(auth, async (user) => {
+            const formTabs = document.querySelector('.form-tabs');
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const userInfo = document.getElementById('userInfo');
+
+            if (user) {
+                // User is logged in - hide forms and show user info
+                formTabs.style.display = 'none';
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'none';
+                userInfo.style.display = 'block';
+
+                // Fetch user data from Firestore
+                const q = query(collection(db, 'users'), where('uid', '==', user.uid));
+                const querySnapshot = await getDocs(q);
+
+                if (!querySnapshot.empty) {
+                    const userData = querySnapshot.docs[0].data();
+                    document.getElementById('displayEmail').textContent = userData.email;
+                    document.getElementById('displayMobile').textContent = userData.mobile;
+                    document.getElementById('displayUID').textContent = user.uid;
+                }
+            } else {
+                // User is logged out - show forms and hide user info
+                formTabs.style.display = 'flex';
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                userInfo.style.display = 'none';
+                switchTab('login');
+            }
+        });
+
+        // Utility functions
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+        }
+
+        function clearMessages() {
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

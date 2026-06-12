@@ -223,7 +223,7 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
 .modal-header-band::before{content:'';position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:rgba(245,124,0,.2);pointer-events:none}
 .modal-header-band::after{content:'';position:absolute;left:-20px;bottom:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none}
 .modal-brand{display:flex;align-items:center;justify-content:center;gap:10px;position:relative;z-index:1;margin-bottom:.4rem}
-.modal-brand img{height:34px;filter:brightness(0) invert(1)}
+.modal-brand img{height:34px;border-radius:6px}
 .modal-brand span{font-family:var(--font-head);font-weight:800;font-size:1.15rem;color:#fff}
 .modal-header-band p{font-size:.82rem;color:rgba(255,255,255,.78);position:relative;z-index:1}
 .modal-body{padding:1.8rem 2rem 2rem}
@@ -1104,10 +1104,7 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
       <div class="modal-form" id="loginForm" style="display:flex">
         <input class="modal-input" type="email" placeholder="📧  Email address">
         <input class="modal-input" type="password" placeholder="🔒  Password">
-        <div class="forgot" style="text-align:right;margin-top:-.3rem">Forgot password?</div>
         <button class="modal-btn" id="loginSubmitBtn" onclick="handleLogin(this)">Login to Account</button>
-        <div class="modal-divider">or continue with</div>
-        <button class="modal-btn" style="background:white;color:var(--gray-700);border:1.5px solid var(--gray-200);display:flex;align-items:center;justify-content:center;gap:.5rem;box-shadow:none" onmouseover="this.style.background='#F8FAFF'" onmouseout="this.style.background='white'"><i class="fa-brands fa-google" style="color:#EA4335"></i> Continue with Google</button>
         <p style="text-align:center;font-size:.8rem;color:var(--gray-400);margin-top:-.2rem">Don't have an account? <a href="#" onclick="switchToSignup(event)" style="color:var(--blue);font-weight:700">Sign Up Free</a></p>
       </div>
       <div class="modal-form" id="signupForm" style="display:none">
@@ -1204,14 +1201,62 @@ document.querySelectorAll('.modal-tab').forEach(tab => {
 });
 
 // CONTACT FORM
-document.getElementById('submitBtn').addEventListener('click', () => {
+document.getElementById('submitBtn').addEventListener('click', async () => {
   const btn = document.getElementById('submitBtn');
-  btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message Sent!';
-  btn.style.background = 'linear-gradient(135deg,#2E7D32,#4CAF50)';
-  setTimeout(() => {
+  const contactForm = document.querySelector('.contact-form');
+  const inputs = contactForm.querySelectorAll('input, select, textarea');
+
+  const firstName = inputs[0]?.value?.trim() || '';
+  const lastName  = inputs[1]?.value?.trim() || '';
+  const email     = inputs[2]?.value?.trim() || '';
+  const phone     = inputs[3]?.value?.trim() || '';
+  const service   = inputs[4]?.value || '';
+  const message   = inputs[5]?.value?.trim() || '';
+
+  if (!firstName || !email || !message) {
+    alert('Please fill in at least your name, email, and message.');
+    return;
+  }
+
+  btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending…';
+  btn.disabled = true;
+
+  try {
+    const { initializeApp, getApps } = await import("https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js");
+    const { getFirestore, collection, addDoc } = await import("https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js");
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDSkTbm5e77JG7CrpY4Cqm-J8RrekiX9h4",
+      authDomain: "hallosethu-users.firebaseapp.com",
+      projectId: "hallosethu-users",
+      storageBucket: "hallosethu-users.firebasestorage.app",
+      messagingSenderId: "253018772733",
+      appId: "1:253018772733:web:f44e8453617007eeca9a94"
+    };
+
+    const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    await addDoc(collection(db, 'contact_messages'), {
+      firstName, lastName, email, phone, service, message,
+      submittedAt: new Date().toISOString()
+    });
+
+    btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message Sent!';
+    btn.style.background = 'linear-gradient(135deg,#2E7D32,#4CAF50)';
+    inputs.forEach(el => { el.value = ''; });
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  } catch (err) {
+    console.error('Contact form error:', err);
     btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
     btn.style.background = '';
-  }, 3000);
+    btn.disabled = false;
+    alert('Failed to send message. Please try again or contact us directly.');
+  }
 });
 
 // AI CHAT

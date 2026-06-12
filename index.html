@@ -2587,7 +2587,7 @@ document.addEventListener('keydown', function(e) {
 <script type="module" src="firebase-auth.js"></script>
 
 <!-- Education Inquiry Modal -->
-<div id="eduInquiryOverlay" style="display:none;position:fixed;inset:0;z-index:3500;background:rgba(13,71,161,.6);backdrop-filter:blur(8px);align-items:center;justify-content:center" class="open" onclick="if(event.target===this)closeEduInquiry()">
+<div id="eduInquiryOverlay" style="position:fixed;inset:0;z-index:3500;background:rgba(13,71,161,.6);backdrop-filter:blur(8px);align-items:center;justify-content:center" onclick="if(event.target===this)closeEduInquiry()">
 </div>
 <style>
 #eduInquiryOverlay{display:flex!important;opacity:0;pointer-events:none;transition:opacity .3s}

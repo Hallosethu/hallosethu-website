@@ -112,6 +112,8 @@
     display:none;transition:opacity .3s;
   }
 
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.3)}}
+
   @media(max-width:480px){
     .card{padding:2rem 1.2rem}
     .cd-num{font-size:1.6rem}
@@ -133,9 +135,13 @@
     <div class="tagline">Your Trusted Local Friend in Vizag</div>
   </div>
 
-  <!-- Headline -->
-  <h1>We're <em>Upgrading</em><br>Our Services!</h1>
-  <p class="subtitle">We'll be back on <strong style="color:#FF9800">June 17, 2026 at 12:00 PM IST</strong> with something exciting for Visakhapatnam. Stay tuned!</p>
+  <!-- Launching Soon Banner -->
+  <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,124,0,0.18);border:1px solid rgba(245,124,0,0.4);border-radius:50px;padding:.45rem 1.1rem;margin-bottom:1rem">
+    <span style="width:8px;height:8px;border-radius:50%;background:#FF9800;display:inline-block;animation:pulse 1.4s infinite"></span>
+    <span style="color:#FFB74D;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase">Launching Soon</span>
+  </div>
+  <h1 style="margin-bottom:.5rem">Something <em>Big</em> is<br>Coming to <em>Vizag!</em></h1>
+  <p class="subtitle">We're officially launching on <strong style="color:#FF9800">June 17, 2026 at 12:00 PM IST</strong>.<br>Be the first to know — register below!</p>
 
   <!-- Countdown -->
   <div class="countdown">

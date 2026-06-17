@@ -163,6 +163,62 @@ ul{list-style:none}
 .svc-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
 .svc-tag{background:var(--gray-100);color:var(--gray-700);font-size:.72rem;padding:.2rem .6rem;border-radius:50px;font-weight:600}
 .btn-svc{display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-weight:700;font-family:var(--font-head);font-size:.85rem;transition:gap .3s}
+
+/* ===== EDU HERO CARD ===== */
+.edu-hero-card{display:grid;grid-template-columns:1fr 420px;gap:0;background:var(--white);border:1px solid var(--gray-200);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:2rem;transition:box-shadow .3s}
+.edu-hero-card:hover{box-shadow:var(--shadow-lg)}
+.ehc-left{padding:2.5rem;display:flex;flex-direction:column;gap:.8rem}
+.ehc-live-pill{display:inline-flex;align-items:center;gap:.45rem;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#16A34A;font-family:var(--font-head);font-weight:700;font-size:.75rem;padding:.3rem .85rem;border-radius:50px;width:fit-content}
+.ehc-dot{width:7px;height:7px;border-radius:50%;background:#22C55E;display:inline-block;animation:livePulse 1.4s ease-in-out infinite}
+.ehc-icon-wrap{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,var(--blue),var(--blue-light));display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem}
+.ehc-title{font-family:var(--font-head);font-weight:800;font-size:1.7rem;color:var(--gray-900);line-height:1.2;margin:0}
+.ehc-desc{color:var(--gray-600);font-size:.92rem;line-height:1.7;margin:0}
+.ehc-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.ehc-chip{display:inline-flex;align-items:center;gap:.4rem;background:var(--off-white);border:1.5px solid var(--gray-200);border-radius:50px;padding:.35rem .85rem;font-family:var(--font-head);font-weight:600;font-size:.78rem;color:var(--gray-700);cursor:pointer;transition:all .2s}
+.ehc-chip:hover{background:linear-gradient(135deg,rgba(21,101,192,.08),rgba(245,124,0,.06));border-color:var(--blue);color:var(--blue)}
+.ehc-chip i{font-size:.72rem;color:var(--blue)}
+.ehc-btns{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
+.ehc-btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:white;border:none;border-radius:12px;padding:.75rem 1.4rem;font-family:var(--font-head);font-weight:700;font-size:.88rem;cursor:pointer;transition:opacity .2s}
+.ehc-btn-primary:hover{opacity:.88}
+.ehc-btn-secondary{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:2px solid var(--blue);color:var(--blue);border-radius:12px;padding:.72rem 1.4rem;font-family:var(--font-head);font-weight:700;font-size:.88rem;cursor:pointer;transition:all .2s}
+.ehc-btn-secondary:hover{background:var(--blue);color:white}
+.ehc-right{position:relative;overflow:hidden}
+.ehc-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.ehc-right-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:1.5rem;background:linear-gradient(to bottom,rgba(13,71,161,.0) 0%,rgba(13,71,161,.65) 100%)}
+.ehc-visual-cta{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:white;padding:.4rem 1rem;border-radius:50px;font-size:.78rem;font-weight:600;width:fit-content}
+.ehc-stat-overlay{display:flex;gap:1rem}
+.ehc-stat{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:.6rem 1rem;text-align:center;flex:1}
+.ehc-stat-num{display:block;color:white;font-family:var(--font-head);font-weight:800;font-size:1.2rem;line-height:1}
+.ehc-stat-label{display:block;color:rgba(255,255,255,.8);font-size:.68rem;font-weight:600;margin-top:.15rem}
+
+/* ===== COMING SOON LABEL ===== */
+.coming-soon-label{display:flex;align-items:center;gap:1rem;margin:2rem 0 1.2rem}
+.csl-line{flex:1;height:1px;background:var(--gray-200)}
+.coming-soon-label span{display:inline-flex;align-items:center;gap:.5rem;color:var(--orange);font-family:var(--font-head);font-weight:700;font-size:.82rem;white-space:nowrap;background:rgba(245,124,0,.08);border:1px solid rgba(245,124,0,.25);padding:.3rem .9rem;border-radius:50px}
+
+/* ===== SOON GRID ===== */
+.soon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem}
+.soon-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:18px;padding:1.4rem;display:flex;flex-direction:column;gap:.6rem;cursor:pointer;transition:all .3s}
+.soon-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--orange)}
+.soon-icon{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,rgba(245,124,0,.12),rgba(255,152,0,.08));display:flex;align-items:center;justify-content:center;font-size:1.15rem;color:var(--orange)}
+.soon-name{font-family:var(--font-head);font-weight:700;font-size:.92rem;color:var(--gray-900)}
+.soon-desc{font-size:.78rem;color:var(--gray-500)}
+.soon-progress-bar{height:5px;background:var(--gray-100);border-radius:50px;overflow:hidden}
+.soon-progress-fill{height:100%;background:linear-gradient(90deg,var(--orange-dark),var(--orange-light));border-radius:50px;transition:width .6s ease}
+.soon-pct{font-size:.72rem;font-weight:700;color:var(--orange);font-family:var(--font-head)}
+.soon-notify-btn{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,var(--orange-dark),var(--orange));color:white;border:none;border-radius:8px;padding:.45rem .9rem;font-family:var(--font-head);font-weight:700;font-size:.78rem;cursor:pointer;margin-top:.2rem;transition:opacity .2s;width:fit-content}
+.soon-notify-btn:hover{opacity:.85}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .edu-hero-card{grid-template-columns:1fr}
+  .ehc-right{height:260px}
+}
+@media(max-width:600px){
+  .ehc-left{padding:1.5rem}
+  .ehc-title{font-size:1.35rem}
+  .soon-grid{grid-template-columns:1fr 1fr}
+}
 .btn-svc:hover{gap:10px}
 
 /* ABOUT */
@@ -660,54 +716,90 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
       <h2 class="section-title">Our <span>Services</span></h2>
       <p class="section-sub">Comprehensive solutions across every aspect of life — expertly delivered through a unified platform.</p>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal" onclick="openEduFlow()" style="cursor:pointer">
-        <div class="svc-live-badge"><span class="live-dot"></span> Live Now</div>
-        <div class="svc-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-        <h3>Education &amp; Career</h3>
-        <p>Empowering your journey from learning to professional success — 100% active in Vizag.</p>
-        <div class="svc-tags"><span class="svc-tag">Schools</span><span class="svc-tag">Coaching</span><span class="svc-tag">Career</span></div>
-        <button class="btn-svc" onclick="event.stopPropagation();openEduFlow()">Explore <i class="fa-solid fa-arrow-right"></i></button>
+
+    <!-- ROW 1: Education & Career — Full-width hero card -->
+    <div class="edu-hero-card reveal" onclick="openEduFlow()" style="cursor:pointer">
+      <div class="ehc-left">
+        <div class="ehc-live-pill"><span class="ehc-dot"></span> Live &amp; Active in Vizag</div>
+        <div class="ehc-icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h2 class="ehc-title">Education &amp; Career</h2>
+        <p class="ehc-desc">Schools, coaching centres, colleges, skill programmes &amp; career guidance — Hallo Sethu is your free, trusted guide across every step of your education journey in Visakhapatnam.</p>
+        <div class="ehc-chips">
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('school')"><i class="fa-solid fa-school"></i> Schools</button>
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('coaching')"><i class="fa-solid fa-chalkboard-teacher"></i> Coaching</button>
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('college')"><i class="fa-solid fa-university"></i> Colleges</button>
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('skill')"><i class="fa-solid fa-laptop-code"></i> Skill Dev</button>
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('placement')"><i class="fa-solid fa-briefcase"></i> Placement</button>
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('jee')"><i class="fa-solid fa-atom"></i> JEE / NEET</button>
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('language')"><i class="fa-solid fa-language"></i> Languages</button>
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('arts')"><i class="fa-solid fa-music"></i> Arts &amp; Sports</button>
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('career')"><i class="fa-solid fa-compass"></i> Career Guide</button>
+          <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('overseas')"><i class="fa-solid fa-globe"></i> Study Abroad</button>
+        </div>
+        <div class="ehc-btns">
+          <button class="ehc-btn-primary" onclick="event.stopPropagation();openEduFlow()"><i class="fa-solid fa-graduation-cap"></i> Explore Now — It's Free</button>
+          <button class="ehc-btn-secondary" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('coaching')"><i class="fa-solid fa-search"></i> Find Coaching</button>
+        </div>
       </div>
-      <div class="service-card reveal" onclick="openComingSoon('Travel & Hospitality','fa-plane-departure','Cab bookings, Vizag tours, PG stays, hotels & outstation trips.',72)" style="cursor:pointer">
-        <div class="svc-soon-badge"><i class="fa-solid fa-rocket" style="font-size:.6rem"></i> Launching Soon</div>
-        <div class="svc-icon"><i class="fa-solid fa-plane-departure"></i></div>
-        <h3>Travel &amp; Hospitality</h3>
-        <p>Cab bookings, Vizag tour plans, PG & hostel stays, and hotel arrangements — coming to Vizag.</p>
-        <div class="svc-tags"><span class="svc-tag">Vizag Tours</span><span class="svc-tag">PG / Hostel</span><span class="svc-tag">Hotels</span></div>
-        <button class="btn-svc" style="color:var(--orange)">Notify Me <i class="fa-solid fa-bell"></i></button>
+      <div class="ehc-right">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2071&auto=format&fit=crop" alt="Education" class="ehc-img">
+        <div class="ehc-right-content">
+          <div class="ehc-visual-cta"><i class="fa-solid fa-arrow-up-right-from-square"></i><span>Explore All Education Services</span></div>
+          <div class="ehc-stat-overlay">
+            <div class="ehc-stat"><span class="ehc-stat-num">10+</span><span class="ehc-stat-label">Segments</span></div>
+            <div class="ehc-stat"><span class="ehc-stat-num">100%</span><span class="ehc-stat-label">Free</span></div>
+            <div class="ehc-stat"><span class="ehc-stat-num">500+</span><span class="ehc-stat-label">Students Guided</span></div>
+          </div>
+        </div>
       </div>
-      <div class="service-card reveal" onclick="openComingSoon('Digital Marketing','fa-bullseye','Social media management, brand photography, podcasts & event promotions.',45)" style="cursor:pointer">
-        <div class="svc-soon-badge"><i class="fa-solid fa-rocket" style="font-size:.6rem"></i> Launching Soon</div>
-        <div class="svc-icon"><i class="fa-solid fa-bullseye"></i></div>
-        <h3>Digital Marketing</h3>
-        <p>Social media management, brand photography, podcasts & event promotions for your business.</p>
-        <div class="svc-tags"><span class="svc-tag">Social Media</span><span class="svc-tag">Podcast</span><span class="svc-tag">Events</span></div>
-        <button class="btn-svc" style="color:var(--orange)">Notify Me <i class="fa-solid fa-bell"></i></button>
+    </div>
+
+    <!-- ROW 2: Coming Soon -->
+    <div class="coming-soon-label reveal">
+      <div class="csl-line"></div>
+      <span><i class="fa-solid fa-rocket"></i> Launching Soon in Vizag</span>
+      <div class="csl-line"></div>
+    </div>
+    <div class="soon-grid reveal">
+      <div class="soon-card" onclick="openComingSoon('Travel &amp; Hospitality','fa-plane-departure','Cab bookings, Vizag tours, PG stays &amp; hotel arrangements.',72)">
+        <div class="soon-icon"><i class="fa-solid fa-plane-departure"></i></div>
+        <div class="soon-name">Travel &amp; Hospitality</div>
+        <div class="soon-desc">Cabs, tours, PG &amp; hotels</div>
+        <div class="soon-progress-bar"><div class="soon-progress-fill" style="width:72%"></div></div>
+        <div class="soon-pct">72% Ready</div>
+        <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
       </div>
-      <div class="service-card reveal" onclick="openComingSoon('Finance','fa-coins','Insurance, ITR filing, loan assistance & asset management guidance.',38)" style="cursor:pointer">
-        <div class="svc-soon-badge"><i class="fa-solid fa-rocket" style="font-size:.6rem"></i> Launching Soon</div>
-        <div class="svc-icon"><i class="fa-solid fa-coins"></i></div>
-        <h3>Finance</h3>
-        <p>Insurance, ITR filing, loan assistance & wealth management — personalised financial guidance.</p>
-        <div class="svc-tags"><span class="svc-tag">Insurance</span><span class="svc-tag">ITR</span><span class="svc-tag">Loans</span></div>
-        <button class="btn-svc" style="color:var(--orange)">Notify Me <i class="fa-solid fa-bell"></i></button>
+      <div class="soon-card" onclick="openComingSoon('Real Estate','fa-building','Buy, rent, lease &amp; invest in property across Visakhapatnam.',55)">
+        <div class="soon-icon"><i class="fa-solid fa-building"></i></div>
+        <div class="soon-name">Real Estate</div>
+        <div class="soon-desc">Buy, rent &amp; invest in Vizag</div>
+        <div class="soon-progress-bar"><div class="soon-progress-fill" style="width:55%"></div></div>
+        <div class="soon-pct">55% Ready</div>
+        <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
       </div>
-      <div class="service-card reveal" onclick="openComingSoon('Real Estate','fa-building','Buy, rent, lease & invest in residential or commercial property in Vizag.',55)" style="cursor:pointer">
-        <div class="svc-soon-badge"><i class="fa-solid fa-rocket" style="font-size:.6rem"></i> Launching Soon</div>
-        <div class="svc-icon"><i class="fa-solid fa-building"></i></div>
-        <h3>Real Estate</h3>
-        <p>Buy, rent, lease & invest in residential or commercial property across Visakhapatnam.</p>
-        <div class="svc-tags"><span class="svc-tag">Buy / Rent</span><span class="svc-tag">NRI Support</span><span class="svc-tag">Interiors</span></div>
-        <button class="btn-svc" style="color:var(--orange)">Notify Me <i class="fa-solid fa-bell"></i></button>
+      <div class="soon-card" onclick="openComingSoon('Health &amp; Wellness','fa-heart-pulse','Gyms, yoga, nutrition, physiotherapy &amp; medical referrals in Vizag.',62)">
+        <div class="soon-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <div class="soon-name">Health &amp; Wellness</div>
+        <div class="soon-desc">Fitness, medical &amp; nutrition</div>
+        <div class="soon-progress-bar"><div class="soon-progress-fill" style="width:62%"></div></div>
+        <div class="soon-pct">62% Ready</div>
+        <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
       </div>
-      <div class="service-card reveal" onclick="openComingSoon('Health &amp; Wellness','fa-heart-pulse','Gyms, yoga centres, nutrition consultants, physiotherapy & medical referrals.',62)" style="cursor:pointer">
-        <div class="svc-soon-badge"><i class="fa-solid fa-rocket" style="font-size:.6rem"></i> Launching Soon</div>
-        <div class="svc-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-        <h3>Health &amp; Wellness</h3>
-        <p>Gyms, yoga, nutrition, physiotherapy, mental wellness & medical referrals in Vizag.</p>
-        <div class="svc-tags"><span class="svc-tag">Medical</span><span class="svc-tag">Fitness</span><span class="svc-tag">Nutrition</span></div>
-        <button class="btn-svc" style="color:var(--orange)">Notify Me <i class="fa-solid fa-bell"></i></button>
+      <div class="soon-card" onclick="openComingSoon('Finance','fa-coins','Insurance, ITR filing, loan assistance &amp; asset management guidance.',38)">
+        <div class="soon-icon"><i class="fa-solid fa-coins"></i></div>
+        <div class="soon-name">Finance</div>
+        <div class="soon-desc">Insurance, ITR &amp; loans</div>
+        <div class="soon-progress-bar"><div class="soon-progress-fill" style="width:38%"></div></div>
+        <div class="soon-pct">38% Ready</div>
+        <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
+      </div>
+      <div class="soon-card" onclick="openComingSoon('Digital Marketing','fa-bullseye','Social media management, brand photography, podcasts &amp; event promotions.',45)">
+        <div class="soon-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <div class="soon-name">Digital Marketing</div>
+        <div class="soon-desc">Social media &amp; branding</div>
+        <div class="soon-progress-bar"><div class="soon-progress-fill" style="width:45%"></div></div>
+        <div class="soon-pct">45% Ready</div>
+        <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
       </div>
     </div>
   </div>

@@ -2674,15 +2674,18 @@ async function submitNotify() {
     await addDoc(collection(db, 'notify_signups'), {
       phone: ph, service: svcName, submittedAt: new Date().toISOString()
     });
+    btn.textContent = '✓ Registered!';
+    btn.disabled = false;
+    btn.style.background = 'linear-gradient(135deg,#16A34A,#22C55E)';
+    setTimeout(function(){ closeComingSoon(); }, 1800);
   } catch(e) {
     console.error('Notify save error:', e.code, e.message);
     btn.textContent = 'Notify Me';
     btn.disabled = false;
+    alert(e.code === 'permission-denied'
+      ? 'Permission denied — database rules need update. Please contact support.'
+      : 'Failed to register. Please try again.');
   }
-  btn.textContent = '✓ Registered!';
-  btn.disabled = false;
-  btn.style.background = 'linear-gradient(135deg,#16A34A,#22C55E)';
-  setTimeout(function(){ closeComingSoon(); }, 1800);
 }
 // Allow escape key to close
 document.addEventListener('keydown', function(e) {

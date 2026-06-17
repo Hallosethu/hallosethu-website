@@ -386,6 +386,11 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
 /* Slide-specific content */
 .hero-slide-content{position:absolute;inset:0;z-index:2;padding:0 2rem;max-width:1200px;margin:0 auto;width:100%;display:flex;flex-direction:column;justify-content:center;padding-top:72px}
 .hero-slide-content .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.25);color:white;padding:.4rem 1rem;border-radius:50px;font-size:.8rem;font-weight:600;margin-bottom:1.5rem;width:fit-content}
+.hero-live-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(107,224,200,0.18);border:1px solid rgba(107,224,200,0.4);color:#6BE0C8;padding:.35rem 1rem;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.04em;margin-bottom:1.2rem;width:fit-content}
+.hero-live-dot{width:8px;height:8px;border-radius:50%;background:#6BE0C8;display:inline-block;animation:livePulse 1.4s ease-in-out infinite}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.4)}}
+.hero-trust-row{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin-top:1.2rem}
+.hero-trust-row span{color:rgba(255,255,255,0.82);font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:.35rem}
 .hero-slide-content h1{font-family:var(--font-head);font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:white;line-height:1.12;margin-bottom:1.2rem}
 .hero-slide-content h1 span{background:linear-gradient(90deg,#FFB74D,#FF9800);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero-slide-content p{color:rgba(255,255,255,0.88);font-size:1.05rem;max-width:540px;line-height:1.7;margin-bottom:2rem}
@@ -566,62 +571,46 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
 </nav>
 
 <!-- HERO -->
+<!-- HERO -->
 <section id="home" class="hero">
   <div class="hero-slides">
     <!-- Slide 1: Education & Career -->
     <div class="hero-slide active">
       <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Education">
       <div class="hero-slide-content">
-        <div class="hero-tag"><i class="fa-solid fa-graduation-cap"></i> Education & Career</div>
+        <div class="hero-live-pill"><span class="hero-live-dot"></span> Now Live in Vizag</div>
         <h1>Your Learning<br><span>Journey Starts</span><br>Here</h1>
-        <p>From schools and coaching to professional skills — Hallo Sethu connects you with the right institution in Visakhapatnam.</p>
+        <p>Schools, coaching centres, colleges &amp; skill programmes — Hallo Sethu connects you with the right institution in Visakhapatnam, for free.</p>
         <div class="hero-btns">
           <a href="#" class="btn-primary" onclick="openEduFlow();return false;"><i class="fa-solid fa-graduation-cap"></i> Explore Education</a>
-          <a href="#about" class="btn-secondary"><i class="fa-solid fa-play"></i> Learn More</a>
+          <a href="#" class="btn-secondary" onclick="openEduFlow();eduOpenSeg('coaching');return false;"><i class="fa-solid fa-chalkboard-teacher"></i> Find Coaching</a>
+        </div>
+        <div class="hero-trust-row">
+          <span><i class="fa-solid fa-circle-check" style="color:#6BE0C8"></i> Schools &amp; Colleges</span>
+          <span><i class="fa-solid fa-circle-check" style="color:#6BE0C8"></i> JEE · NEET · EAMCET</span>
+          <span><i class="fa-solid fa-circle-check" style="color:#6BE0C8"></i> Career Guidance</span>
         </div>
       </div>
     </div>
-    <!-- Slide 2: Travel & Hospitality -->
+    <!-- Slide 2: Career & Jobs -->
     <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop" alt="Travel">
+      <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2071&auto=format&fit=crop" alt="Career">
       <div class="hero-slide-content">
-        <div class="hero-tag"><i class="fa-solid fa-plane-departure"></i> Travel & Hospitality</div>
-        <h1>Travel Smart,<br><span>Stay Better</span><br>in Vizag</h1>
-        <p>Seamless travel plans, PG & hostel finding, and premium hotel bookings — all arranged through your local Vizag guide.</p>
+        <div class="hero-live-pill"><span class="hero-live-dot"></span> Now Live in Vizag</div>
+        <h1>Launch Your<br><span>Career</span><br>in Vizag</h1>
+        <p>Skill development, placement support, interview coaching &amp; job-ready programmes — everything you need to land your first job.</p>
         <div class="hero-btns">
-          <button class="btn-primary" onclick="openComingSoon('Travel &amp; Hospitality','fa-plane-departure','Cab bookings, Vizag tours, PG stays &amp; hotel arrangements.',72)"><i class="fa-solid fa-rocket"></i> Launching Soon — Notify Me</button>
-          <a href="#about" class="btn-secondary"><i class="fa-solid fa-play"></i> Learn More</a>
+          <a href="#" class="btn-primary" onclick="openEduFlow();eduOpenSeg('skill');return false;"><i class="fa-solid fa-briefcase"></i> Explore Skill Courses</a>
+          <a href="#" class="btn-secondary" onclick="openEduFlow();eduOpenSeg('placement');return false;"><i class="fa-solid fa-handshake"></i> Placement Support</a>
         </div>
-      </div>
-    </div>
-    <!-- Slide 3: Real Estate -->
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=2070&auto=format&fit=crop" alt="Real Estate">
-      <div class="hero-slide-content">
-        <div class="hero-tag"><i class="fa-solid fa-building"></i> Real Estate</div>
-        <h1>Find Your<br><span>Perfect Space</span><br>in Vizag</h1>
-        <p>Buy, rent, or lease residential & commercial properties — Hallosethu connects you with trusted local options in Visakhapatnam.</p>
-        <div class="hero-btns">
-          <button class="btn-primary" onclick="openComingSoon('Real Estate','fa-building','Buy, rent, lease &amp; invest in property across Visakhapatnam.',55)"><i class="fa-solid fa-rocket"></i> Launching Soon — Notify Me</button>
-          <a href="#about" class="btn-secondary"><i class="fa-solid fa-play"></i> Learn More</a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 4: Health & Wellness -->
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop" alt="Health">
-      <div class="hero-slide-content">
-        <div class="hero-tag"><i class="fa-solid fa-heart-pulse"></i> Health & Wellness</div>
-        <h1>Your Health,<br><span>Our Priority</span><br>Always</h1>
-        <p>Hospitals, specialists, gyms, yoga & wellness centres in Visakhapatnam — matched to your needs and budget, for free.</p>
-        <div class="hero-btns">
-          <button class="btn-primary" onclick="openComingSoon('Health &amp; Wellness','fa-heart-pulse','Gyms, yoga, nutrition, physiotherapy &amp; medical referrals in Vizag.',62)"><i class="fa-solid fa-rocket"></i> Launching Soon — Notify Me</button>
-          <a href="#about" class="btn-secondary"><i class="fa-solid fa-play"></i> Learn More</a>
+        <div class="hero-trust-row">
+          <span><i class="fa-solid fa-circle-check" style="color:#6BE0C8"></i> Skill Development</span>
+          <span><i class="fa-solid fa-circle-check" style="color:#6BE0C8"></i> Interview Prep</span>
+          <span><i class="fa-solid fa-circle-check" style="color:#6BE0C8"></i> 100% Free Guidance</span>
         </div>
       </div>
     </div>
   </div>
-  <!-- hero-content is now inside each slide; this empty wrapper keeps stats/indicators working -->
   <div class="hero-content" style="pointer-events:none;opacity:0;position:absolute"></div>
   <div class="hero-stats">
     <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Services</div></div>
@@ -631,8 +620,6 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
   <div class="hero-indicators">
     <div class="indicator active" data-slide="0"></div>
     <div class="indicator" data-slide="1"></div>
-    <div class="indicator" data-slide="2"></div>
-    <div class="indicator" data-slide="3"></div>
   </div>
 </section>
 

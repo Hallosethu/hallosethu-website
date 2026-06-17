@@ -1578,7 +1578,7 @@ async function submitEduInquiry() {
     document.getElementById('eduInqResult').style.display = 'block';
   } catch(e) {
     console.error('Edu inquiry error:', e.code, e.message);
-    btn.textContent = 'Send Inquiry — We'll Get Back to You';
+    btn.textContent = 'Send Inquiry — We\'ll Get Back to You';
     btn.disabled = false;
     const msg = e.code === 'permission-denied'
       ? 'Permission denied — Firestore rules need update. Please call +91 6301851739.'

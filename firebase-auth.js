@@ -107,17 +107,25 @@ async function handleSignup(btn) {
 
         await updateProfile(user, { displayName: name });
 
-        await setDoc(doc(db, 'users', user.uid), {
-            uid: user.uid,
-            name: name,
-            email: email,
-            mobile: mobile,
-            createdAt: new Date().toISOString()
-        });
+        // Save user data to Firestore
+        try {
+            await setDoc(doc(db, 'users', user.uid), {
+                uid: user.uid,
+                name: name,
+                email: email,
+                mobile: mobile,
+                createdAt: new Date().toISOString()
+            });
+            console.log('✅ User data saved to Firestore');
+        } catch (firestoreError) {
+            console.error('❌ Firestore write failed:', firestoreError.code, firestoreError.message);
+            // Auth account created successfully — Firestore failure is a rules issue
+        }
 
         showAlert('✅ Account created! Welcome to Hallosethu!', 'success');
         setTimeout(() => { location.reload(); }, 2000);
     } catch (error) {
+        console.error('❌ Signup error:', error.code, error.message);
         showAlert('❌ ' + getFriendlyError(error.code), 'error');
         if (btn) { btn.textContent = originalText; btn.disabled = false; }
         signupInProgress = false;

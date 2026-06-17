@@ -183,7 +183,7 @@ ul{list-style:none}
 .ehc-btn-secondary{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:2px solid var(--blue);color:var(--blue);border-radius:12px;padding:.72rem 1.4rem;font-family:var(--font-head);font-weight:700;font-size:.88rem;cursor:pointer;transition:all .2s}
 .ehc-btn-secondary:hover{background:var(--blue);color:white}
 .ehc-right{position:relative;overflow:hidden;min-height:320px;background:linear-gradient(135deg,#1565C0,#0D47A1)}
-.ehc-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.ehc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .ehc-right-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:1.5rem;background:linear-gradient(to bottom,rgba(13,71,161,.0) 0%,rgba(13,71,161,.65) 100%)}
 .ehc-visual-cta{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:white;padding:.4rem 1rem;border-radius:50px;font-size:.78rem;font-weight:600;width:fit-content}
 .ehc-stat-overlay{display:flex;gap:1rem}
@@ -194,20 +194,20 @@ ul{list-style:none}
 /* ===== COMING SOON LABEL ===== */
 .coming-soon-label{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.4rem}
 .csl-line{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,rgba(245,124,0,.3),transparent)}
-.coming-soon-label span{display:inline-flex;align-items:center;gap:.5rem;color:white;font-family:var(--font-head);font-weight:700;font-size:.82rem;white-space:nowrap;background:linear-gradient(135deg,var(--orange-dark),var(--orange));padding:.45rem 1.1rem;border-radius:50px;box-shadow:0 4px 14px rgba(230,81,0,.3);letter-spacing:.03em}
+.coming-soon-label span{display:inline-flex;align-items:center;gap:.5rem;color:white;font-family:var(--font-head);font-weight:700;font-size:.82rem;white-space:nowrap;background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:.45rem 1.1rem;border-radius:50px;box-shadow:0 4px 14px rgba(13,71,161,.25);letter-spacing:.03em}
 
 /* ===== SOON GRID ===== */
 .soon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem}
 .soon-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:18px;padding:1.4rem;display:flex;flex-direction:column;gap:.6rem;cursor:pointer;transition:all .3s}
 .soon-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--orange)}
-.soon-icon{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,rgba(245,124,0,.12),rgba(255,152,0,.08));display:flex;align-items:center;justify-content:center;font-size:1.15rem;color:var(--orange)}
+.soon-icon{width:46px;height:46px;border-radius:13px;background:rgba(245,124,0,.08);border:1px solid rgba(245,124,0,.15);display:flex;align-items:center;justify-content:center;font-size:1.15rem;color:var(--orange-dark)}
 .soon-name{font-family:var(--font-head);font-weight:700;font-size:.92rem;color:var(--gray-900)}
 .soon-desc{font-size:.78rem;color:var(--gray-500)}
 .soon-progress-bar{height:5px;background:var(--gray-100);border-radius:50px;overflow:hidden}
-.soon-progress-fill{height:100%;background:linear-gradient(90deg,var(--orange-dark),var(--orange-light));border-radius:50px;transition:width .6s ease}
-.soon-pct{font-size:.72rem;font-weight:700;color:var(--orange);font-family:var(--font-head)}
-.soon-notify-btn{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,var(--orange-dark),var(--orange));color:white;border:none;border-radius:8px;padding:.45rem .9rem;font-family:var(--font-head);font-weight:700;font-size:.78rem;cursor:pointer;margin-top:.2rem;transition:opacity .2s;width:fit-content}
-.soon-notify-btn:hover{opacity:.85}
+.soon-progress-fill{height:100%;background:linear-gradient(90deg,#F57C00,#FFB74D);border-radius:50px;transition:width .6s ease}
+.soon-pct{font-size:.72rem;font-weight:700;color:var(--orange-dark);font-family:var(--font-head);opacity:.8}
+.soon-notify-btn{display:inline-flex;align-items:center;gap:.4rem;background:transparent;color:var(--orange-dark);border:1.5px solid rgba(230,81,0,.35);border-radius:8px;padding:.42rem .9rem;font-family:var(--font-head);font-weight:700;font-size:.78rem;cursor:pointer;margin-top:.2rem;transition:all .2s;width:fit-content}
+.soon-notify-btn:hover{background:linear-gradient(135deg,var(--orange-dark),var(--orange));color:white;border-color:transparent;box-shadow:0 4px 12px rgba(230,81,0,.25)}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
@@ -632,7 +632,7 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
   <div class="hero-slides">
     <!-- Slide 1: Education & Career -->
     <div class="hero-slide active">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Education">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2070&auto=format&fit=crop" alt="Education">
       <div class="hero-slide-content">
         <div class="hero-live-pill"><span class="hero-live-dot"></span> Now Live in Vizag</div>
         <h1>Your Learning<br><span>Journey Starts</span><br>Here</h1>
@@ -650,7 +650,7 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
     </div>
     <!-- Slide 2: Career & Jobs -->
     <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2071&auto=format&fit=crop" alt="Career">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop" alt="Career">
       <div class="hero-slide-content">
         <div class="hero-live-pill"><span class="hero-live-dot"></span> Now Live in Vizag</div>
         <h1>Launch Your<br><span>Career</span><br>in Vizag</h1>
@@ -742,7 +742,7 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
         </div>
       </div>
       <div class="ehc-right">
-        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2071&auto=format&fit=crop" alt="Education" class="ehc-img">
+        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Education" class="ehc-img" onerror="this.style.display='none'">
         <div class="ehc-right-content">
           <div class="ehc-visual-cta"><i class="fa-solid fa-arrow-up-right-from-square"></i><span>Explore All Education Services</span></div>
           <div class="ehc-stat-overlay">

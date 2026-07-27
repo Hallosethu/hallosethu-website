@@ -603,6 +603,40 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
 /* Coming soon badge on other cards */
 .svc-soon-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(245,124,0,.1);border:1px solid rgba(245,124,0,.25);color:#E65100;font-family:var(--font-head);font-weight:700;font-size:.68rem;padding:.2rem .6rem;border-radius:50px;margin-bottom:.6rem}
 
+/* ── Career Connect Banner ───────────────────────────── */
+.cc-banner{position:relative;overflow:hidden;border-radius:24px;background:radial-gradient(ellipse 60% 80% at 90% 30%,rgba(245,124,0,.55) 0%,transparent 65%),radial-gradient(ellipse 70% 60% at 10% 80%,rgba(21,101,192,.40) 0%,transparent 60%),linear-gradient(135deg,#0D2B5E 0%,#1565C0 45%,#C75000 100%);padding:3rem 3.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;box-shadow:0 24px 64px rgba(13,43,94,.30)}
+.cc-banner::before{content:'';position:absolute;top:-60px;right:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(255,152,0,.35) 0%,transparent 70%);pointer-events:none}
+.cc-banner::after{content:'';position:absolute;bottom:-80px;left:30%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);pointer-events:none}
+.cc-left{position:relative;z-index:1}
+.cc-logo-row{display:flex;align-items:center;gap:.55rem;margin-bottom:.9rem}
+.cc-logo-icon{width:30px;height:30px;background:white;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:#1565C0}
+.cc-logo-text{font-size:.85rem;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.02em}
+.cc-eyebrow{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:100px;padding:.28rem .85rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.92);margin-bottom:1.1rem}
+.cc-dot{width:6px;height:6px;border-radius:50%;background:#FFB74D;animation:ccPulse 2s ease-in-out infinite;flex-shrink:0;display:inline-block}
+@keyframes ccPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.cc-headline{font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:900;line-height:1;color:#fff;letter-spacing:-.02em;text-wrap:balance;margin-bottom:.75rem;font-family:var(--font-head)}
+.cc-headline em{font-style:normal;color:#FFB74D}
+.cc-tagline{font-size:1rem;font-weight:600;color:rgba(255,255,255,.88);margin-bottom:.5rem;letter-spacing:.01em}
+.cc-sub{font-size:.85rem;color:rgba(255,255,255,.65);margin-bottom:1.4rem;max-width:480px}
+.cc-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.6rem}
+.cc-chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);border-radius:100px;padding:.3rem .8rem;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.92);white-space:nowrap}
+.cc-details{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.6rem;padding:1rem 1.25rem;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;max-width:500px}
+.cc-detail-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.50);margin-bottom:.15rem}
+.cc-detail-value{font-size:.92rem;font-weight:700;color:#fff}
+.cc-detail-sep{width:1px;background:rgba(255,255,255,.18);align-self:stretch}
+.cc-cta-row{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap}
+.cc-btn{display:inline-flex;align-items:center;gap:.5rem;background:#F57C00;color:#fff;border:none;border-radius:10px;padding:.75rem 1.6rem;font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none;box-shadow:0 4px 18px rgba(245,124,0,.45);transition:background .18s,transform .15s,box-shadow .18s;white-space:nowrap;font-family:var(--font-head)}
+.cc-btn:hover{background:#E65100;transform:translateY(-1px);box-shadow:0 6px 24px rgba(245,124,0,.55)}
+.cc-contact{font-size:.78rem;color:rgba(255,255,255,.60);line-height:1.55}
+.cc-contact strong{color:rgba(255,255,255,.85)}
+.cc-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:140px}
+.cc-badge{width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.22);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.1rem;backdrop-filter:blur(8px)}
+.cc-badge-top{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.cc-badge-day{font-size:2.2rem;font-weight:900;color:#fff;line-height:1;font-family:var(--font-head)}
+.cc-badge-month{font-size:.85rem;font-weight:700;color:#FFB74D;letter-spacing:.05em}
+.cc-badge-year{font-size:.65rem;color:rgba(255,255,255,.45);margin-top:.1rem}
+@media(max-width:680px){.cc-banner{grid-template-columns:1fr;padding:2rem 1.5rem}.cc-right{display:none}}
+
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
@@ -709,6 +743,51 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
     </div>
   </div>
 </div>
+
+<!-- CAREER CONNECT BANNER -->
+<section class="section" style="padding-bottom:0">
+  <div class="section-inner">
+    <div class="cc-banner reveal">
+      <div class="cc-left">
+        <div class="cc-logo-row">
+          <div class="cc-logo-icon">HS</div>
+          <span class="cc-logo-text">Hallosethu</span>
+        </div>
+        <div class="cc-eyebrow"><span class="cc-dot"></span>Kickoff Meetup &middot; Vizag</div>
+        <h2 class="cc-headline">Career<br><em>Connect</em></h2>
+        <p class="cc-tagline">Connecting people. Sharing knowledge. Building careers.</p>
+        <p class="cc-sub">Freshers, job seekers &amp; experienced professionals at one table &mdash; in Vizag.</p>
+        <div class="cc-chips">
+          <span class="cc-chip">&#127919; Career guidance</span>
+          <span class="cc-chip">&#129309; Job referrals</span>
+          <span class="cc-chip">&#128196; Resume review</span>
+          <span class="cc-chip">&#127908; Mock interviews</span>
+          <span class="cc-chip">&#129504; Mentorship</span>
+          <span class="cc-chip">&#127760; Networking</span>
+        </div>
+        <div class="cc-details">
+          <div class="cc-detail-item"><div class="cc-detail-label">Date</div><div class="cc-detail-value">Sunday, 6 Sep</div></div>
+          <div class="cc-detail-sep"></div>
+          <div class="cc-detail-item"><div class="cc-detail-label">Time</div><div class="cc-detail-value">11 am &ndash; 2 pm</div></div>
+          <div class="cc-detail-sep"></div>
+          <div class="cc-detail-item"><div class="cc-detail-label">Venue</div><div class="cc-detail-value">Vizag</div></div>
+        </div>
+        <div class="cc-cta-row">
+          <a href="tel:+916301851739" class="cc-btn">&#128222; Book your slot</a>
+          <div class="cc-contact"><strong>Call or WhatsApp</strong><br>63018 51739 &middot; @hallo_sethu</div>
+        </div>
+      </div>
+      <div class="cc-right">
+        <div class="cc-badge">
+          <span class="cc-badge-top">Event</span>
+          <span class="cc-badge-day">6</span>
+          <span class="cc-badge-month">September</span>
+          <span class="cc-badge-year">2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section id="services" class="section">

@@ -641,6 +641,32 @@ footer{background:var(--gray-900);color:white;padding:4rem 2rem 2rem}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
 <body>
+
+<!-- CAREER CONNECT TOP ANNOUNCEMENT BAR -->
+<div id="ccTopBar" style="
+  position:sticky;top:0;z-index:9999;
+  background:linear-gradient(90deg,#0D2B5E 0%,#1565C0 35%,#C75000 75%,#F57C00 100%);
+  padding:.6rem 1.5rem;
+  display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;
+  animation:ccSlideDown .5s ease both;
+  box-shadow:0 2px 12px rgba(13,43,94,.35);
+">
+  <span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.18rem .65rem;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FFB74D;white-space:nowrap">
+    <span style="width:6px;height:6px;border-radius:50%;background:#FFB74D;display:inline-block;animation:ccPulse 2s ease-in-out infinite"></span>
+    Upcoming Event
+  </span>
+  <span style="font-size:.88rem;font-weight:700;color:#fff;white-space:nowrap">
+    🎯 <strong>Career Connect Kickoff</strong> &mdash; Sunday, 6 Sep &middot; 11 am–2 pm &middot; Vizag
+  </span>
+  <a href="tel:+916301851739" style="display:inline-flex;align-items:center;gap:.35rem;background:#F57C00;color:#fff;border-radius:8px;padding:.35rem 1rem;font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 2px 8px rgba(245,124,0,.4);transition:background .15s" onmouseover="this.style.background='#E65100'" onmouseout="this.style.background='#F57C00'">
+    📞 Book Slot
+  </a>
+  <button onclick="document.getElementById('ccTopBar').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,.6);font-size:1rem;cursor:pointer;padding:0 .25rem;line-height:1;margin-left:.25rem" title="Dismiss">&#10005;</button>
+</div>
+<style>
+@keyframes ccSlideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+</style>
+
 <!-- NAV -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">

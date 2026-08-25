@@ -480,7 +480,8 @@
 
     /* SECTIONS */
     .section {
-      padding: 5rem 2rem
+      margin-top: 2rem 0;
+      padding: 3rem 2rem
     }
 
     .section-inner {
@@ -4803,16 +4804,16 @@
           <div class="chat-header">
             <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
             <div>
-              <div class="chat-name">Sethu AI</div>
+              <div class="chat-name">Hallosethu Support</div>
               <div class="chat-status"><span class="status-dot"></span> Online</div>
             </div>
           </div>
           <div class="chat-messages" id="chatMessages">
-            <div class="msg bot">👋 Hi! I'm Sethu AI. I can help you with any of our 6 service categories. What are you
+            <div class="msg bot">👋 Hi! I'm Hallosethu Support. I can help you with any of our 6 service categories. What are you
               looking for today?</div>
             <div class="msg user">What travel services do you offer?</div>
             <div class="msg bot" id="aiReply" style="animation-delay:.2s">We offer complete travel planning, PG & hostel
-              finding, and premium hotel/resort bookings across India. Would you like me to share a service request
+              finding, and premium hotel/resort bookings across Visakhapatnam (Vizag). Would you like me to share a service request
               form? 🏖️</div>
           </div>
           <div class="chat-input-row">
@@ -5394,7 +5395,13 @@
     (function () {
       function headerOffset() {
         const announceH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--announce-h')) || 0;
-        return navbar.offsetHeight + announceH + 16; // +16px breathing room below the bar
+        // No extra buffer here: sections are laid out back-to-back with no
+        // gap between them, so any added buffer just reveals a sliver of
+        // the PREVIOUS section rather than adding breathing room to the
+        // destination — every section already has its own top padding
+        // (48-80px) for that. Landing flush against the nav's bottom edge
+        // is what keeps the previous section fully out of view.
+        return navbar.offsetHeight + announceH;
       }
 
       const navSectionLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'))
@@ -5576,11 +5583,11 @@
     // ===== LOCAL FAQ KNOWLEDGE BASE =====
     const faqKnowledge = [
       // About Us
-      { keys: ['where', 'located', 'location', 'city', 'vizag', 'visakhapatnam', 'operate', 'based'], answer: "Hallosethu is exclusively based in Visakhapatnam (Vizag), Andhra Pradesh. All our services and local expertise are centred around the Vizag region. We currently serve customers only within Visakhapatnam. 📍" },
+      { keys: ['where', 'located', 'location', 'city', 'vizag', 'visakhapatnam', 'operate', 'based', 'service area', 'areas covered', 'coverage', 'which areas', 'which cities'], answer: "Hallosethu is exclusively based in Visakhapatnam (Vizag), Andhra Pradesh. All our services and local expertise are centred around the Vizag region. We currently serve customers only within Visakhapatnam. 📍" },
       { keys: ['other cities', 'other states', 'bangalore', 'hyderabad', 'chennai', 'delhi', 'mumbai'], answer: "Currently we serve customers only within Visakhapatnam (Vizag). Our in-depth local knowledge helps us provide the best possible experience right here in Vizag. We plan to expand to more cities in the future! 😊" },
 
       // Why Hallosethu
-      { keys: ['why hallosethu', 'why choose', 'benefit', 'advantage', 'trust', 'trusted'], answer: "Hallosethu is your trusted local friend in Visakhapatnam who already knows the city and guides you straight to the right service. We offer 100% free consultation — no charges, no hidden fees, no commitments. We give personalised suggestions based on your specific needs and budget from our trusted local network. 🌟" },
+      { keys: ['why hallosethu', 'why choose', 'benefit', 'advantage', 'trust', 'trusted', 'about hallosethu', 'about us', 'about you', 'who are you', 'what is hallosethu'], answer: "Hallosethu is your trusted local friend in Visakhapatnam who already knows the city and guides you straight to the right service. We offer 100% free consultation — no charges, no hidden fees, no commitments. We give personalised suggestions based on your specific needs and budget from our trusted local network. 🌟" },
       { keys: ['free', 'cost', 'charge', 'fee', 'price', 'paid', 'register', 'registration'], answer: "Our consultation is completely FREE of charge! There are no hidden fees, no registration charges, and no commitment required. You only decide to move forward if and when you are fully satisfied with our recommendations. 😊" },
 
       // Services Overview
@@ -5588,7 +5595,7 @@
       { keys: ['tour plan', 'vizag tour', 'sightseeing', 'tourist', 'visit vizag', 'tour of vizag'], answer: "Yes! We offer personalised Vizag Tour Plans tailored to your interests, schedule, and budget. Just share your group size, preferred dates, and interests and we will curate the best experience for you. Call us at +91 6301851739 or email support@hallosethu.com! 🗺️" },
 
       // Education & Career
-      { keys: ['education', 'career', 'school', 'college', 'course', 'coaching', 'jee', 'neet', 'eamcet', 'study', 'admission', 'degree', 'study abroad', 'usa', 'uk', 'australia', 'gre', 'ielts', 'ielts', 'toefl', 'visa'], answer: "Our Education & Career service is fully live! ✅ We help with school admissions (CBSE/ICSE/State/International), college admissions with JEE/NEET/EAMCET counselling, coaching centres for competitive exams, skills & certifications (IT, Design, Finance), study abroad guidance (GRE/IELTS, SOP, visa), career guidance, job search, resume prep, and placement assistance in Vizag. Share your requirement and we'll connect you with the best options! Call +91 6301851739." },
+      { keys: ['education', 'career', 'school', 'college', 'course', 'coaching', 'jee', 'neet', 'eamcet', 'study', 'admission', 'degree', 'study abroad', 'usa', 'uk', 'australia', 'gre', 'ielts', 'toefl', 'visa'], answer: "Our Education & Career service is fully live! ✅ We help with school admissions (CBSE/ICSE/State/International), college admissions with JEE/NEET/EAMCET counselling, coaching centres for competitive exams, skills & certifications (IT, Design, Finance), study abroad guidance (GRE/IELTS, SOP, visa), career guidance, job search, resume prep, and placement assistance in Vizag. Share your requirement and we'll connect you with the best options! Call +91 6301851739." },
       { keys: ['resume', 'cv', 'interview', 'job', 'placement', 'employment', 'hiring', 'naukri', 'linkedin'], answer: "We offer career support including ATS-friendly resume writing, mock interview prep, LinkedIn profile optimisation, and placement assistance with local Vizag employers and walk-in drives. Call us at +91 6301851739 or email support@hallosethu.com to get started! 💼" },
       { keys: ['upsc', 'appsc', 'ssc', 'banking', 'railway', 'government exam', 'govt exam', 'competitive exam'], answer: "We guide you to the best government and competitive exam coaching centres in Vizag for UPSC, APPSC, SSC, Banking, and Railways. Share your target exam and budget and we'll recommend the right coaching. Call +91 6301851739! 📚" },
 
@@ -5601,7 +5608,7 @@
       { keys: ['emergency', 'urgent', 'ambulance', '108'], answer: "For life-threatening emergencies please call 108 (emergency services) immediately. We can guide you to the nearest emergency hospitals in Vizag. Our team is also reachable at +91 6301851739 for non-emergency medical assistance. 🚑" },
 
       // Real Estate
-      { keys: ['real estate', 'property', 'flat', 'house', 'apartment', 'rent', 'buy', 'lease', 'land', 'commercial', 'nri', 'invest', 'outstation buyer'], answer: "Our Real Estate service assists with buying, renting, and leasing residential and commercial properties in Visakhapatnam. We regularly help NRIs and outstation buyers explore property options remotely. Share your requirement and budget and we'll connect you with trusted local options. Call +91 6301851739 or email support@hallosethu.com. 🏠" },
+      { keys: ['real estate', 'property', 'flat', 'house', 'apartment', 'rent', 'buy', 'lease', 'leasing', 'land', 'commercial', 'nri', 'invest', 'outstation buyer'], answer: "Our Real Estate service assists with buying, renting, and leasing residential and commercial properties in Visakhapatnam. We regularly help NRIs and outstation buyers explore property options remotely. Share your requirement and budget and we'll connect you with trusted local options. Call +91 6301851739 or email support@hallosethu.com. 🏠" },
 
       // Health & Wellness
       { keys: ['gym', 'yoga', 'fitness', 'nutrition', 'wellness', 'physiotherapy', 'mental health', 'stress', 'weight loss', 'diet', 'lifestyle', 'wellness centre'], answer: "Our Health & Wellness service connects you with gyms, yoga centres, wellness retreats, nutrition consultants, physiotherapy clinics, and mental wellness services in Vizag — all matched to your goals and budget. Whether your goal is weight loss, stress management, physiotherapy recovery, or general fitness, we'll point you in the right direction. Call +91 6301851739! 💪" },
@@ -5621,16 +5628,16 @@
     ];
 
     function getFaqAnswer(text) {
-      const lower = text.toLowerCase();
+      // Normalise hyphens/underscores to spaces and collapse repeated
+      // whitespace so phrasing like "short-stay" still matches a key written
+      // as "short stay" (a hyphen vs. space mismatch was silently sending
+      // several quick-question chips to the generic fallback below).
+      const lower = text.toLowerCase().replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
       for (const entry of faqKnowledge) {
         if (entry.keys.some(k => lower.includes(k))) return entry.answer;
       }
       return "I'd be happy to help! We offer free consultations for Education & Career ✅, Travels ✈️, Medical 🏥, Real Estate 🏠, and Health & Wellness 💪 in Visakhapatnam. For specific queries, please call +91 6301851739 or email support@hallosethu.com. 😊";
     }
-
-    const botResponses = {
-      'default': "I'd be happy to help! We offer services in Education & Career, Travel, Real Estate, Medical, and Health & Wellness in Vizag. Which area interests you? 😊"
-    };
 
     function sendAIMessage() {
       const text = chatInput.value.trim();
@@ -5654,16 +5661,11 @@
       }, 600);
     }
 
-    function getFallback(text) {
-      return getFaqAnswer(text);
-    }
-
     chatSendBtn.addEventListener('click', sendAIMessage);
     chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendAIMessage(); });
-    document.getElementById('tryAI').addEventListener('click', () => {
-      document.querySelector('.ai-section').scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => chatInput.focus(), 600);
-    });
+    // #tryAI's own inline onclick already opens the floating chat widget —
+    // no separate listener here, since a second one previously fired at the
+    // same time (scrolling the page to this section AND opening the widget).
 
     // ===== FAQ JS =====
     function switchFaqGroup(btn, group) {
@@ -6512,7 +6514,10 @@
       right: 24px;
       z-index: 9998;
       width: 360px;
-      height: 510px;
+      /* Caps to the viewport when 510px + the 104px bottom offset + a 36px
+         top margin don't fit — otherwise the fixed height pushes the panel's
+         top edge above y:0 on shorter browser windows. */
+      height: min(510px, calc(100vh - 140px));
       background: #fff;
       border-radius: 20px;
       border: 1px solid rgba(21, 101, 192, .12);
@@ -7379,12 +7384,11 @@
         wellness: { icon: 'ti-heart', label: 'Health & Wellness', live: false, qs: ['Gyms & fitness centres', 'Yoga & meditation', 'Physiotherapy clinics', 'Nutrition / diet consultant', 'Mental wellness services'] },
         medical: { icon: 'ti-stethoscope', label: 'Medical', live: false, qs: ['Find a specialist / doctor', 'Hospital referral in Vizag', 'Diagnostic centre nearby', 'Coming to Vizag for treatment', 'Emergency guidance'] }
       };
-      var SYS = 'You are a warm, helpful support chatbot for Hallosethu — "Your Trusted Local Friend in Visakhapatnam (Vizag)", Andhra Pradesh.\n\nRULES:\n1. Answer ONLY using the FAQ knowledge below.\n2. When a user makes a service request or wants to proceed (book, plan, find, arrange, buy, rent), briefly answer then share contact details.\n3. Contact: Phone: 6301851739 | Email: Support@hallosethu.com or hallosethu9@gmail.com | Location: Visakhapatnam (Vizag), AP.\n4. Keep answers 2-4 sentences. Be warm, use "we/our".\n\nFAQ:\nABOUT: Exclusively in Vizag, AP. 100% free consultation, no fees, no registration.\nTRAVELS: Sightseeing, intercity, outstation, cab, group tours, custom itineraries, solo/family/groups.\nVIZAG TOUR: Personalised tours for interests, schedule, budget.\nHOSPITALITY: Hotels, short-stay, long-stay, furnished apartments across Vizag.\nMEDICAL: Hospitals, clinics, specialists, diagnostics. Helps visiting patients. Emergencies: call 108.\nREAL ESTATE: Buy/rent/lease residential & commercial. Helps NRIs and outstation buyers.\nHEALTH & WELLNESS: Gyms, yoga, wellness retreats, nutrition, physiotherapy, mental wellness.\nEDUCATION: Institutions, courses, career opportunities in/around Vizag.\nHOW IT WORKS: Share requirement + budget, team gives curated recommendations. No charges.\nCONTACT: Support@hallosethu.com | hallosethu9@gmail.com | 6301851739 | Vizag, AP.';
 
       var mEl = document.getElementById('_hs_msgs'),
         cEl = document.getElementById('_hs_chips'),
         iEl = document.getElementById('_hs_inp'),
-        hist = [], open = false;
+        open = false;
 
       function ts() { return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); }
       function es(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -7407,7 +7411,16 @@
           if (ltext) ltext.textContent = 'SETHU';
         }
         document.getElementById('_hs_notif').style.display = open ? 'none' : 'flex';
+        // Same body-scroll lock the site's other overlays (login, education,
+        // coming-soon) already use — without it the page scrolls invisibly
+        // behind the fixed chat panel, most noticeable on mobile where the
+        // panel covers most of the screen.
+        document.body.style.overflow = open ? 'hidden' : '';
       }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && open) toggle();
+      });
 
       function showGrid() {
         cEl.innerHTML = '';
@@ -7437,7 +7450,6 @@
       function selSvc(k) {
         var s = SVCS[k];
         add('user', es(s.label));
-        hist.push({ role: 'user', content: 'I am interested in: ' + s.label });
         showQs(k);
         add('bot', GREETS[k] || 'Please select a question or type your query below.');
       }

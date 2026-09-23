@@ -1,0 +1,298 @@
+    /* ── COMING SOON OVERLAY ── */
+    .cs-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(13, 71, 161, .55);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s
+    }
+
+    .cs-overlay.open {
+      opacity: 1;
+      pointer-events: all
+    }
+
+    .cs-modal {
+      background: #fff;
+      border-radius: 28px;
+      width: min(480px, 90vw);
+      padding: 0;
+      overflow: hidden;
+      transform: scale(.92) translateY(20px);
+      transition: transform .35s;
+      box-shadow: 0 24px 64px rgba(13, 71, 161, .22)
+    }
+
+    .cs-overlay.open .cs-modal {
+      transform: scale(1) translateY(0)
+    }
+
+    .cs-header {
+      background: linear-gradient(135deg, #0D47A1, #1565C0 55%, #1E88E5);
+      padding: 2rem 2rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center
+    }
+
+    .cs-header::before {
+      content: '';
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(245, 124, 0, .2)
+    }
+
+    .cs-header::after {
+      content: '';
+      position: absolute;
+      left: -20px;
+      bottom: -20px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .07)
+    }
+
+    .cs-rocket {
+      font-size: 2.8rem;
+      margin-bottom: .6rem;
+      display: block;
+      animation: cs_float 2.5s ease-in-out infinite
+    }
+
+    @keyframes cs_float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    .cs-header h2 {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+      margin-bottom: .3rem
+    }
+
+    .cs-header p {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .82);
+      position: relative;
+      z-index: 1;
+      line-height: 1.5
+    }
+
+    .cs-body {
+      padding: 1.8rem 2rem 2rem
+    }
+
+    .cs-service-name {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      background: linear-gradient(135deg, rgba(21, 101, 192, .07), rgba(245, 124, 0, .05));
+      border: 1.5px solid rgba(21, 101, 192, .15);
+      border-radius: 12px;
+      padding: .85rem 1.1rem;
+      margin-bottom: 1.4rem
+    }
+
+    .cs-service-name .cs-svc-ico {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      background: linear-gradient(135deg, #1565C0, #1E88E5);
+      color: #fff;
+      flex-shrink: 0
+    }
+
+    .cs-service-name h4 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--gray-900);
+      margin-bottom: .1rem
+    }
+
+    .cs-service-name p {
+      font-size: .76rem;
+      color: var(--gray-500)
+    }
+
+    .cs-progress-wrap {
+      margin-bottom: 1.4rem
+    }
+
+    .cs-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .78rem;
+      color: var(--gray-700);
+      margin-bottom: .4rem
+    }
+
+    .cs-bar {
+      height: 7px;
+      background: var(--gray-200);
+      border-radius: 50px;
+      overflow: hidden
+    }
+
+    .cs-bar-fill {
+      height: 100%;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #1565C0, #1E88E5, #F57C00);
+      transition: width 1.2s ease .2s
+    }
+
+    .cs-notify-label {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .82rem;
+      color: var(--gray-700);
+      margin-bottom: .55rem
+    }
+
+    .cs-notify-row {
+      display: flex;
+      gap: .55rem
+    }
+
+    .cs-notify-input {
+      flex: 1;
+      padding: .65rem .9rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: .85rem;
+      outline: none;
+      transition: border .2s;
+      color: var(--gray-900);
+      background: var(--gray-100)
+    }
+
+    .cs-notify-input:focus {
+      border-color: #1565C0;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(21, 101, 192, .1)
+    }
+
+    .cs-notify-btn {
+      padding: .65rem 1.2rem;
+      background: linear-gradient(135deg, #1565C0, #1E88E5);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .84rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .3s
+    }
+
+    .cs-notify-btn:hover {
+      background: linear-gradient(135deg, #E65100, #F57C00)
+    }
+
+    .cs-divider {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin: 1.1rem 0;
+      color: var(--gray-400);
+      font-size: .76rem
+    }
+
+    .cs-divider::before,
+    .cs-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200)
+    }
+
+    .cs-edu-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, rgba(21, 101, 192, .06), rgba(245, 124, 0, .04));
+      border: 1.5px dashed rgba(21, 101, 192, .25);
+      border-radius: 12px;
+      padding: .9rem 1.1rem;
+      cursor: pointer;
+      transition: all .3s
+    }
+
+    .cs-edu-cta:hover {
+      background: linear-gradient(135deg, rgba(21, 101, 192, .1), rgba(245, 124, 0, .07))
+    }
+
+    .cs-edu-cta .cs-edu-text h5 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .88rem;
+      color: var(--gray-900);
+      margin-bottom: .15rem
+    }
+
+    .cs-edu-cta .cs-edu-text p {
+      font-size: .75rem;
+      color: var(--gray-500)
+    }
+
+    .cs-edu-cta .cs-edu-arr {
+      color: #1565C0;
+      font-size: 1.1rem;
+      transition: transform .25s
+    }
+
+    .cs-edu-cta:hover .cs-edu-arr {
+      transform: translateX(4px)
+    }
+
+    .cs-close-btn {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+      padding: .7rem;
+      background: none;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 11px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: .86rem;
+      color: var(--gray-500);
+      cursor: pointer;
+      transition: all .25s
+    }
+
+    .cs-close-btn:hover {
+      border-color: var(--gray-400);
+      color: var(--gray-700)
+    }
+

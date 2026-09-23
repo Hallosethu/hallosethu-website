@@ -1,0 +1,48 @@
+  <!-- AI ASSISTANT -->
+  <section class="ai-section">
+    <div class="ai-container">
+      <div class="ai-text reveal">
+        <div class="section-badge"
+          style="background:rgba(245,124,0,0.15);border-color:rgba(245,124,0,0.3);color:#FFB74D"><i
+            class="fa-solid fa-robot"></i> AI-Powered</div>
+        <h2 style="margin-top:.5rem">Meet Your <span>AI Assistant</span><br>— Always Here</h2>
+        <p>Get instant answers about any of our services, check availability, or get personalized recommendations — all
+          through our intelligent assistant available 24/7.</p>
+        <div class="ai-features">
+          <div class="ai-feat"><i class="fa-solid fa-circle-check"></i> Instant service information & guidance</div>
+          <div class="ai-feat"><i class="fa-solid fa-circle-check"></i> Personalized recommendations based on your needs
+          </div>
+          <div class="ai-feat"><i class="fa-solid fa-circle-check"></i> Book consultations & fill service forms
+            instantly</div>
+          <div class="ai-feat"><i class="fa-solid fa-circle-check"></i> 24/7 availability — no waiting, no queues</div>
+        </div>
+        <button class="btn-primary" id="tryAI"
+          onclick="document.getElementById('_hs_launcher').click();return false;"><i class="fa-solid fa-robot"></i> Try
+          AI Assistant</button>
+      </div>
+      <div class="reveal">
+        <div class="ai-chat" id="aiChat">
+          <div class="chat-header">
+            <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div>
+              <div class="chat-name">Hallosethu Support</div>
+              <div class="chat-status"><span class="status-dot"></span> Online</div>
+            </div>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="msg bot">👋 Hi! I'm Hallosethu Support. I can help you with any of our 6 service categories. What are you
+              looking for today?</div>
+            <div class="msg user">What travel services do you offer?</div>
+            <div class="msg bot" id="aiReply" style="animation-delay:.2s">We offer complete travel planning, PG & hostel
+              finding, and premium hotel/resort bookings across Visakhapatnam (Vizag). Would you like me to share a service request
+              form? 🏖️</div>
+          </div>
+          <div class="chat-input-row">
+            <input class="chat-input" id="chatInput" placeholder="Ask about any service..." type="text">
+            <button class="chat-send" id="chatSendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+

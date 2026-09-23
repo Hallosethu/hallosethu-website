@@ -1,0 +1,169 @@
+  <style>
+    @keyframes ccSlideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1
+      }
+    }
+
+    /* CAREER CONNECT ANNOUNCEMENT BAR — desktop (unchanged from the original inline styles) */
+    .ccb-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
+      background: linear-gradient(90deg, #0D2B5E 0%, #1565C0 35%, #C75000 75%, #F57C00 100%);
+      padding: .6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: ccSlideDown .5s ease both;
+      box-shadow: 0 2px 12px rgba(13, 43, 94, .35)
+    }
+
+    /* On desktop these wrappers are invisible to layout — badge/message/cta
+       behave as direct flex children of .ccb-bar, exactly as before. */
+    .ccb-viewport,
+    .ccb-track,
+    .ccb-content {
+      display: contents
+    }
+
+    .ccb-content--clone {
+      display: none
+    }
+
+    .ccb-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 100px;
+      padding: .18rem .65rem;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #FFB74D;
+      white-space: nowrap
+    }
+
+    .ccb-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #FFB74D;
+      display: inline-block;
+      animation: ccPulse 2s ease-in-out infinite
+    }
+
+    .ccb-message {
+      font-size: .88rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap
+    }
+
+    .ccb-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: #F57C00;
+      color: #fff;
+      border-radius: 8px;
+      padding: .35rem 1rem;
+      font-size: .78rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(245, 124, 0, .4);
+      transition: background .15s
+    }
+
+    .ccb-dismiss {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, .6);
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0 .25rem;
+      line-height: 1;
+      margin-left: .25rem;
+      flex-shrink: 0
+    }
+
+    /* MOBILE — turn the bar into a compact, non-wrapping horizontal ticker */
+    @media (max-width: 768px) {
+      .ccb-bar {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: .6rem;
+        padding: .5rem 1rem;
+        overflow: hidden
+      }
+
+      .ccb-viewport {
+        display: block;
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow: hidden
+      }
+
+      .ccb-track {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        animation: ccbTicker 16s linear infinite
+      }
+
+      .ccb-track.ccb-paused {
+        animation-play-state: paused
+      }
+
+      .ccb-content,
+      .ccb-content--clone {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        flex-shrink: 0;
+        padding-right: 2.5rem
+      }
+
+      .ccb-badge {
+        font-size: .6rem;
+        padding: .15rem .55rem
+      }
+
+      .ccb-message {
+        font-size: .78rem
+      }
+
+      .ccb-cta {
+        font-size: .72rem;
+        padding: .3rem .8rem
+      }
+
+      .ccb-dismiss {
+        margin-left: 0
+      }
+    }
+
+    @keyframes ccbTicker {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+  </style>

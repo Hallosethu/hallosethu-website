@@ -1,0 +1,34 @@
+  <!-- Education Inquiry Modal -->
+  <div id="eduInqModal"
+    style="display:none;position:fixed;inset:0;z-index:3500;background:rgba(13,71,161,.6);backdrop-filter:blur(8px);align-items:center;justify-content:center"
+    onclick="if(event.target===this)closeEduInquiry()">
+    <div
+      style="background:#fff;border-radius:20px;padding:2rem;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.25);position:relative">
+      <button onclick="closeEduInquiry()"
+        style="position:absolute;top:.8rem;right:.9rem;background:none;border:none;font-size:1.1rem;cursor:pointer;color:#888"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3 style="font-size:1.05rem;font-weight:700;color:#1565C0;margin-bottom:.4rem"><i class="fa-solid fa-paper-plane"
+          style="color:#E65100;margin-right:.4rem"></i> Send Us Your Inquiry</h3>
+      <p id="eduInqCategoryLabel" style="font-size:.82rem;color:#E65100;font-weight:600;margin-bottom:1rem"></p>
+      <div id="eduInqFormBody">
+        <input id="eduInqName" type="text" placeholder="Your Full Name *"
+          style="width:100%;padding:.72rem 1rem;border:1.5px solid #e0e0e0;border-radius:10px;font-size:.9rem;margin-bottom:.75rem;font-family:inherit;outline:none;box-sizing:border-box">
+        <input id="eduInqPhone" type="tel" placeholder="WhatsApp / Phone Number *"
+          style="width:100%;padding:.72rem 1rem;border:1.5px solid #e0e0e0;border-radius:10px;font-size:.9rem;margin-bottom:.75rem;font-family:inherit;outline:none;box-sizing:border-box">
+        <textarea id="eduInqMsg" placeholder="Tell us what you need help with..."
+          style="width:100%;padding:.72rem 1rem;border:1.5px solid #e0e0e0;border-radius:10px;font-size:.9rem;margin-bottom:.9rem;font-family:inherit;outline:none;box-sizing:border-box;height:85px;resize:none"></textarea>
+        <button id="eduInqSubmitBtn" onclick="submitEduInquiry()"
+          style="width:100%;padding:.85rem;background:linear-gradient(135deg,#1565C0,#1E88E5);color:#fff;border:none;border-radius:12px;font-family:inherit;font-weight:700;font-size:.95rem;cursor:pointer">Send
+          Inquiry — We'll Get Back to You</button>
+      </div>
+      <div id="eduInqResult" style="display:none;text-align:center;padding:1rem 0">
+        <div style="font-size:3rem;margin-bottom:.5rem">✅</div>
+        <h4 style="color:#16A34A;font-size:1.1rem;margin-bottom:.5rem">Inquiry Received!</h4>
+        <p style="color:#555;font-size:.9rem">Our team will call you back shortly.<br>Urgent? Call <strong>+91
+            9010973762</strong></p>
+        <button onclick="closeEduInquiry()"
+          style="margin-top:1rem;padding:.6rem 1.5rem;background:#1565C0;color:#fff;border:none;border-radius:8px;font-weight:700;font-family:inherit;cursor:pointer">Close</button>
+      </div>
+    </div>
+  </div>
+

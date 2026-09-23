@@ -1,0 +1,381 @@
+  <!-- ===== FAQ SECTION ===== -->
+  <section id="faq" class="faq-section">
+    <div class="faq-inner">
+      <div class="section-header reveal" style="margin-bottom:2.5rem">
+        <div class="section-badge"><i class="fa-solid fa-circle-question"></i> Help Centre</div>
+        <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+        <p class="section-sub">Everything you need to know about Hallo Sethu and our services — sorted by category for
+          quick answers.</p>
+      </div>
+      <div class="faq-layout">
+        <!-- Sidebar -->
+        <div class="faq-sidebar reveal">
+          <div class="faq-sidebar-card">
+            <h3><i class="fa-solid fa-list" style="color:var(--blue);margin-right:.4rem"></i> Categories</h3>
+            <button class="faq-cat-btn active" onclick="switchFaqGroup(this,'about')"><i
+                class="fa-solid fa-info-circle"></i> About Us</button>
+            <button class="faq-cat-btn" onclick="switchFaqGroup(this,'why')"><i class="fa-solid fa-star"></i> Why
+              Hallosethu</button>
+            <button class="faq-cat-btn" onclick="switchFaqGroup(this,'services')"><i class="fa-solid fa-grid-2"></i> Our
+              Services</button>
+            <button class="faq-cat-btn" onclick="switchFaqGroup(this,'travels')"><i class="fa-solid fa-plane"></i>
+              Travels</button>
+            <button class="faq-cat-btn" onclick="switchFaqGroup(this,'medical')"><i class="fa-solid fa-stethoscope"></i>
+              Medical</button>
+            <button class="faq-cat-btn" onclick="switchFaqGroup(this,'realestate')"><i class="fa-solid fa-building"></i>
+              Real Estate</button>
+            <button class="faq-cat-btn" onclick="switchFaqGroup(this,'wellness')"><i
+                class="fa-solid fa-heart-pulse"></i> Health & Wellness</button>
+            <button class="faq-cat-btn" onclick="switchFaqGroup(this,'howwework')"><i class="fa-solid fa-gears"></i> How
+              We Work</button>
+            <button class="faq-cat-btn" onclick="switchFaqGroup(this,'support')"><i class="fa-solid fa-headset"></i>
+              Support & Contact</button>
+          </div>
+          <div class="faq-cta-box">
+            <p>Still have questions? Our team is ready to help — for free.</p>
+            <a href="#contact"><i class="fa-solid fa-phone"></i> Contact Us</a>
+          </div>
+        </div>
+
+        <!-- FAQ Groups -->
+        <div class="faq-content reveal">
+
+          <!-- About Us -->
+          <div class="faq-group active" id="faqg-about">
+            <div class="faq-group-header">
+              <div class="faq-group-icon blue"><i class="fa-solid fa-info-circle"></i></div>
+              <div>
+                <div class="faq-group-title">About Us</div>
+                <div class="faq-group-sub">Learn about who we are and where we operate</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Where is Hallosethu located? <span class="faq-q-icon"><i
+                    class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Hallosethu is exclusively based in <strong>Visakhapatnam (Vizag), Andhra
+                    Pradesh</strong>. All our services and local expertise are centred around the Vizag region.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Do you operate in other cities or states? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Currently, we serve customers <strong>only within Visakhapatnam</strong>. Our
+                  in-depth local knowledge helps us provide the best possible experience right here in Vizag.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Why Hallosethu -->
+          <div class="faq-group" id="faqg-why">
+            <div class="faq-group-header">
+              <div class="faq-group-icon orange"><i class="fa-solid fa-star"></i></div>
+              <div>
+                <div class="faq-group-title">Why Hallosethu?</div>
+                <div class="faq-group-sub">What makes us your trusted local friend</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Why should I choose Hallosethu? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  Finding the right service in a new city — or even your own — can be overwhelming. Hallosethu is your
+                  <strong>trusted local friend in Visakhapatnam</strong> who already knows the city, understands your
+                  needs, and guides you straight to the right people.
+                  <br><br>Simply tell us what you need and your budget — we listen, understand, and connect you with the
+                  most suitable service from our trusted local network.
+                  <ul>
+                    <li>Saves your time and energy searching for the right service</li>
+                    <li>Personalised suggestions based on your specific needs and budget</li>
+                    <li>Acts as a trusted friend, guide, and local reference</li>
+                    <li><strong>100% free consultation</strong> — no charges, no hidden fees, no commitments</li>
+                    <li>Recommendations from a verified and trusted local network in Vizag</li>
+                    <li>Deep local knowledge of Visakhapatnam across all service categories</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Services -->
+          <div class="faq-group" id="faqg-services">
+            <div class="faq-group-header">
+              <div class="faq-group-icon blue"><i class="fa-solid fa-grid-2"></i></div>
+              <div>
+                <div class="faq-group-title">Our Services</div>
+                <div class="faq-group-sub">What we offer across Vizag</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">What services does Hallosethu offer? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">We offer a wide range of services to cater to every need in Vizag:
+                  <ul>
+                    <li>Education & Career Consultancy</li>
+                    <li>Travels</li>
+                    <li>Hospitality</li>
+                    <li>Vizag Tour Plan</li>
+                    <li>Medical</li>
+                    <li>Real Estate</li>
+                    <li>Health & Wellness</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Can I plan a tour of Visakhapatnam through Hallosethu?
+                <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Yes! We offer <strong>personalised Vizag Tour Plans</strong> tailored to your
+                  interests, schedule, and budget. Just reach out and we will curate the best experience for you.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Do you assist with education and career guidance? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Absolutely. Our <strong>Education and Career Consultancy</strong> service helps
+                  students and professionals make informed decisions about academic institutions, courses, and career
+                  opportunities in and around Vizag.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Travels -->
+          <div class="faq-group" id="faqg-travels">
+            <div class="faq-group-header">
+              <div class="faq-group-icon orange"><i class="fa-solid fa-plane"></i></div>
+              <div>
+                <div class="faq-group-title">Travels</div>
+                <div class="faq-group-sub">Trips, tours, and accommodation in Vizag</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">What kind of travel services does Hallosethu provide?
+                <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">We assist with local sightseeing, intercity trips, and outstation travel
+                  arrangements within and from Visakhapatnam — including <strong>cab bookings, group tours, and custom
+                    itineraries</strong>.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Can you arrange group travel or family trips? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Yes! We cater to <strong>solo travellers, couples, families, and
+                    groups</strong>. Share your group size, preferred dates, and budget, and we will put together the
+                  right travel plan for you.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Do you help with hotel or accommodation bookings during
+                travel? <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Yes, through our <strong>Hospitality and Travels</strong> services combined, we
+                  can suggest and coordinate accommodation options that suit your travel plan and budget.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medical -->
+          <div class="faq-group" id="faqg-medical">
+            <div class="faq-group-header">
+              <div class="faq-group-icon blue"><i class="fa-solid fa-stethoscope"></i></div>
+              <div>
+                <div class="faq-group-title">Medical</div>
+                <div class="faq-group-sub">Hospitals, specialists & clinical care in Vizag</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">How does Hallosethu help with medical needs? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">We help you find the right <strong>hospitals, clinics, specialists, and
+                    diagnostic centres</strong> in Visakhapatnam based on your specific medical requirement and budget —
+                  so you spend less time searching and more time focusing on health.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Can you assist patients visiting Vizag for medical
+                treatment? <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Absolutely. If you are travelling to Vizag for medical purposes, we can
+                  coordinate <strong>hospital referrals, accommodation near medical facilities, and local
+                    transport</strong> to make your visit as smooth as possible.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Do you cover emergency medical assistance guidance? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">We can guide you to the nearest and most suitable emergency services in Vizag.
+                  For life-threatening emergencies, please always <strong>call local emergency services (108)
+                    first</strong>.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real Estate -->
+          <div class="faq-group" id="faqg-realestate">
+            <div class="faq-group-header">
+              <div class="faq-group-icon orange"><i class="fa-solid fa-building"></i></div>
+              <div>
+                <div class="faq-group-title">Real Estate</div>
+                <div class="faq-group-sub">Buy, rent, and lease property in Vizag</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">What real estate services does Hallosethu offer in Vizag?
+                <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">We assist with <strong>buying, renting, and leasing residential and commercial
+                    properties</strong> in Visakhapatnam. Share your requirement and budget and we will connect you with
+                  the most relevant options.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Can you help me find a rental home or flat in Vizag? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Yes! Whether you need a short-stay rental, a long-term flat, or a furnished
+                  apartment, we match your needs with available options across <strong>localities in
+                    Visakhapatnam</strong>.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Do you assist NRIs or outstation buyers looking for
+                property in Vizag? <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Yes, we regularly help <strong>NRIs and buyers from other cities</strong>
+                  explore property options in Visakhapatnam remotely. We guide you through the process and connect you
+                  with trusted local contacts.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Health & Wellness -->
+          <div class="faq-group" id="faqg-wellness">
+            <div class="faq-group-header">
+              <div class="faq-group-icon blue"><i class="fa-solid fa-heart-pulse"></i></div>
+              <div>
+                <div class="faq-group-title">Health & Wellness</div>
+                <div class="faq-group-sub">Fitness, preventive care & lifestyle in Vizag</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">What does the Health & Wellness service cover? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">We connect you with <strong>gyms, yoga centres, wellness retreats, nutrition
+                    consultants, physiotherapy clinics, and mental wellness services</strong> in Visakhapatnam — all
+                  matched to your goals and budget.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Can you suggest the right wellness centre for my specific
+                goal? <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Yes. Whether your goal is <strong>weight loss, stress management, physiotherapy
+                    recovery, or general fitness</strong>, just tell us what you are looking for and we will point you
+                  in the right direction.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Is health and wellness guidance different from medical
+                assistance? <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Yes — our <strong>Health & Wellness</strong> service focuses on preventive
+                  care, fitness, and lifestyle improvement, while our <strong>Medical</strong> service helps you find
+                  hospitals, specialists, and clinical care for treatment needs.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- How We Work -->
+          <div class="faq-group" id="faqg-howwework">
+            <div class="faq-group-header">
+              <div class="faq-group-icon orange"><i class="fa-solid fa-gears"></i></div>
+              <div>
+                <div class="faq-group-title">How We Work</div>
+                <div class="faq-group-sub">Our process, recommendations & charges</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Why don't I see specific business listings on your
+                website? <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Rather than listing businesses directly, we take a <strong>personalised
+                    approach</strong>. You select the service category you need, share your requirements and budget, and
+                  we suggest the most suitable options matched specifically to you.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">How does Hallosethu suggest the right option for me? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Once you share your requirement and budget, our team reviews your needs and
+                  provides <strong>curated recommendations from our trusted local network</strong> — so you always get a
+                  shortlist that truly fits, not a generic directory.</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Is there any charge for consultations or recommendations?
+                <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner"><strong>No — our consultation is completely free of charge.</strong> Connecting
+                  with us, sharing your requirements, and receiving personalised recommendations costs you nothing at
+                  all. We are here to help!</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">Do I need to pay anything before getting suggestions?
+                <span class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Absolutely not. There are <strong>no hidden fees, no registration charges, and
+                    no commitment required</strong>. You only decide to move forward if and when you are fully satisfied
+                  with the recommendations provided.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Support & Contact -->
+          <div class="faq-group" id="faqg-support">
+            <div class="faq-group-header">
+              <div class="faq-group-icon blue"><i class="fa-solid fa-headset"></i></div>
+              <div>
+                <div class="faq-group-title">Support & Contact</div>
+                <div class="faq-group-sub">Get in touch with our team</div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">How can I get in touch with Hallosethu? <span
+                  class="faq-q-icon"><i class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">You can reach our support team through any of the channels below:
+                  <ul>
+                    <li><strong>Email:</strong> support@hallosethu.com &nbsp;|&nbsp; hallosethu9@gmail.com</li>
+                    <li><strong>Phone:</strong> +91 9010973762</li>
+                    <li><strong>Location:</strong> Visakhapatnam (Vizag), Andhra Pradesh</li>
+                  </ul>
+                  We are always happy to help!
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">What are your support hours? <span class="faq-q-icon"><i
+                    class="fa-solid fa-plus"></i></span></button>
+              <div class="faq-a">
+                <div class="faq-a-inner">Our team aims to <strong>respond to all queries promptly</strong>. Feel free to
+                  drop us a message or give us a call and we will get back to you as soon as possible.</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /faq-content -->
+      </div><!-- /faq-layout -->
+    </div>
+  </section>

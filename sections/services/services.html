@@ -1,0 +1,131 @@
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-badge"><i class="fa-solid fa-grid-2"></i> What We Offer</div>
+        <h2 class="section-title">Our <span>Services</span></h2>
+        <p class="section-sub">Comprehensive solutions across every aspect of life — expertly delivered through a
+          unified platform.</p>
+      </div>
+
+      <!-- ROW 1: Education & Career — Full-width hero card -->
+      <div class="edu-hero-card reveal" onclick="openEduFlow()" style="cursor:pointer">
+        <div class="ehc-left">
+          <div class="ehc-live-pill"><span class="ehc-dot"></span> Live &amp; Active in Vizag</div>
+          <div class="ehc-icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h2 class="ehc-title">Education &amp; Career</h2>
+          <p class="ehc-desc">Schools, coaching centres, colleges, skill programmes &amp; career guidance — Hallo Sethu
+            is your free, trusted guide across every step of your education journey in Visakhapatnam.</p>
+          <div class="ehc-chips">
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('school')"><i
+                class="fa-solid fa-school"></i> Schools</button>
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('coaching')"><i
+                class="fa-solid fa-chalkboard-teacher"></i> Coaching</button>
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('college')"><i
+                class="fa-solid fa-university"></i> Colleges</button>
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('skill')"><i
+                class="fa-solid fa-laptop-code"></i> Skill Dev</button>
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('placement')"><i
+                class="fa-solid fa-briefcase"></i> Placement</button>
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('jee')"><i
+                class="fa-solid fa-atom"></i> JEE / NEET</button>
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('language')"><i
+                class="fa-solid fa-language"></i> Languages</button>
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('arts')"><i
+                class="fa-solid fa-music"></i> Arts &amp; Sports</button>
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('career')"><i
+                class="fa-solid fa-compass"></i> Career Guide</button>
+            <button class="ehc-chip" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('overseas')"><i
+                class="fa-solid fa-globe"></i> Study Abroad</button>
+          </div>
+          <div class="ehc-btns">
+            <button class="ehc-btn-primary" onclick="event.stopPropagation();openEduFlow()"><i
+                class="fa-solid fa-graduation-cap"></i> Explore Now — It's Free</button>
+            <button class="ehc-btn-secondary" onclick="event.stopPropagation();openEduFlow();eduOpenSeg('coaching')"><i
+                class="fa-solid fa-search"></i> Find Coaching</button>
+          </div>
+        </div>
+        <div class="ehc-right">
+          <img
+            src="https://images.pexels.com/photos/3231358/pexels-photo-3231358.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+            alt="Education" class="ehc-img" onerror="this.style.display='none'">
+          <div class="ehc-right-content">
+            <div class="ehc-visual-cta"><i class="fa-solid fa-arrow-up-right-from-square"></i><span>Explore All
+                Education Services</span></div>
+            <div class="ehc-stat-overlay">
+              <div class="ehc-stat"><span class="ehc-stat-num">10+</span><span class="ehc-stat-label">Segments</span>
+              </div>
+              <div class="ehc-stat"><span class="ehc-stat-num">100%</span><span class="ehc-stat-label">Free</span></div>
+              <div class="ehc-stat"><span class="ehc-stat-num">500+</span><span class="ehc-stat-label">Students
+                  Guided</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2: Coming Soon -->
+      <div class="coming-soon-label reveal">
+        <div class="csl-line"></div>
+        <span><i class="fa-solid fa-rocket"></i> Launching Soon in Vizag</span>
+        <div class="csl-line"></div>
+      </div>
+      <div class="soon-grid reveal">
+        <div class="soon-card"
+          onclick="openComingSoon('Travel &amp; Hospitality','fa-plane-departure','Cab bookings, Vizag tours, PG stays &amp; hotel arrangements.',72)">
+          <div class="soon-icon"><i class="fa-solid fa-plane-departure"></i></div>
+          <div class="soon-name">Travel &amp; Hospitality</div>
+          <div class="soon-desc">Cabs, tours, PG &amp; hotels</div>
+          <div class="soon-progress-bar">
+            <div class="soon-progress-fill" style="width:72%"></div>
+          </div>
+          <div class="soon-pct">72% Ready</div>
+          <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
+        </div>
+        <div class="soon-card"
+          onclick="openComingSoon('Real Estate','fa-building','Buy, rent, lease &amp; invest in property across Visakhapatnam.',55)">
+          <div class="soon-icon"><i class="fa-solid fa-building"></i></div>
+          <div class="soon-name">Real Estate</div>
+          <div class="soon-desc">Buy, rent &amp; invest in Vizag</div>
+          <div class="soon-progress-bar">
+            <div class="soon-progress-fill" style="width:55%"></div>
+          </div>
+          <div class="soon-pct">55% Ready</div>
+          <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
+        </div>
+        <div class="soon-card"
+          onclick="openComingSoon('Health &amp; Wellness','fa-heart-pulse','Gyms, yoga, nutrition, physiotherapy &amp; medical referrals in Vizag.',62)">
+          <div class="soon-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <div class="soon-name">Health &amp; Wellness</div>
+          <div class="soon-desc">Fitness, medical &amp; nutrition</div>
+          <div class="soon-progress-bar">
+            <div class="soon-progress-fill" style="width:62%"></div>
+          </div>
+          <div class="soon-pct">62% Ready</div>
+          <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
+        </div>
+        <div class="soon-card"
+          onclick="openComingSoon('Finance','fa-coins','Insurance, ITR filing, loan assistance &amp; asset management guidance.',38)">
+          <div class="soon-icon"><i class="fa-solid fa-coins"></i></div>
+          <div class="soon-name">Finance</div>
+          <div class="soon-desc">Insurance, ITR &amp; loans</div>
+          <div class="soon-progress-bar">
+            <div class="soon-progress-fill" style="width:38%"></div>
+          </div>
+          <div class="soon-pct">38% Ready</div>
+          <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
+        </div>
+        <div class="soon-card"
+          onclick="openComingSoon('Digital Marketing','fa-bullseye','Social media management, brand photography, podcasts &amp; event promotions.',45)">
+          <div class="soon-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <div class="soon-name">Digital Marketing</div>
+          <div class="soon-desc">Social media &amp; branding</div>
+          <div class="soon-progress-bar">
+            <div class="soon-progress-fill" style="width:45%"></div>
+          </div>
+          <div class="soon-pct">45% Ready</div>
+          <button class="soon-notify-btn"><i class="fa-solid fa-bell"></i> Notify Me</button>
+        </div>
+      </div>
+    </div>
+  </section>
+

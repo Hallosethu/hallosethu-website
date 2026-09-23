@@ -1,0 +1,40 @@
+  <!-- ══ COMING SOON MODAL ══ -->
+  <div class="cs-overlay" id="csOverlay" onclick="if(event.target===this)closeComingSoon()">
+    <div class="cs-modal" id="csModal">
+      <div class="cs-header">
+        <span class="cs-rocket" id="csEmoji">🚀</span>
+        <h2 id="csTitle">Launching Soon!</h2>
+        <p id="csSubtitle">We're working hard to bring this service to Vizag.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-service-name">
+          <div class="cs-svc-ico" id="csSvcIco"><i class="fa-solid fa-rocket" id="csSvcIcon"></i></div>
+          <div>
+            <h4 id="csSvcName">Service Name</h4>
+            <p id="csSvcDesc">Description here</p>
+          </div>
+        </div>
+        <div class="cs-progress-wrap">
+          <div class="cs-progress-label"><span>Launch Progress</span><span id="csPercent">0%</span></div>
+          <div class="cs-bar">
+            <div class="cs-bar-fill" id="csBarFill" style="width:0%"></div>
+          </div>
+        </div>
+        <div class="cs-notify-label">🔔 Get notified when we launch — it's free</div>
+        <div class="cs-notify-row">
+          <input class="cs-notify-input" type="tel" id="csPhone" placeholder="Your WhatsApp / phone number">
+          <button class="cs-notify-btn" id="csNotifyBtn" onclick="submitNotify()">Notify Me</button>
+        </div>
+        <div class="cs-divider">or</div>
+        <div class="cs-edu-cta" onclick="closeComingSoon();openEduFlow()">
+          <div class="cs-edu-text">
+            <h5>🎓 Education &amp; Career is Live Now!</h5>
+            <p>Explore schools, coaching, colleges &amp; career services — active in Vizag</p>
+          </div>
+          <i class="fa-solid fa-arrow-right cs-edu-arr"></i>
+        </div>
+        <button class="cs-close-btn" onclick="closeComingSoon()">Close</button>
+      </div>
+    </div>
+  </div>
+

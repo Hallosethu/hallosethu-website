@@ -1,0 +1,39 @@
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal">
+      <!-- Gradient header -->
+      <div class="modal-header-band">
+        <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-brand">
+          <img src="LOGO_PLACEHOLDER" alt="Hallosethu">
+          <span>Hallo Sethu</span>
+        </div>
+        <p>Your Trusted Local Friend in Vizag</p>
+      </div>
+      <!-- Body -->
+      <div class="modal-body">
+        <div class="modal-tabs">
+          <div class="modal-tab active" data-tab="login">Login</div>
+          <div class="modal-tab" data-tab="signup">Sign Up</div>
+        </div>
+        <div class="modal-form" id="loginForm" style="display:flex">
+          <input class="modal-input" type="email" placeholder="📧  Email address">
+          <input class="modal-input" type="password" placeholder="🔒  Password">
+          <button class="modal-btn" id="loginSubmitBtn" onclick="handleLogin(this)">Login to Account</button>
+          <p style="text-align:center;font-size:.8rem;color:var(--gray-400);margin-top:-.2rem">Don't have an account? <a
+              href="#" onclick="switchToSignup(event)" style="color:var(--blue);font-weight:700">Sign Up Free</a></p>
+        </div>
+        <div class="modal-form" id="signupForm" style="display:none">
+          <input class="modal-input" type="text" placeholder="👤  Full name">
+          <input class="modal-input" type="email" placeholder="📧  Email address">
+          <input class="modal-input" type="tel" placeholder="📱  WhatsApp / Phone number">
+          <input class="modal-input" type="password" placeholder="🔒  Create password">
+          <button class="modal-btn" id="signupSubmitBtn" onclick="handleSignup(this)">Create Free Account</button>
+          <p style="text-align:center;font-size:.78rem;color:var(--gray-400);line-height:1.5;margin-top:-.1rem">By
+            signing up you agree to our <a href="#" style="color:var(--blue)">Terms</a>. Already have an account? <a
+              href="#" onclick="switchToLogin(event)" style="color:var(--blue);font-weight:700">Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+

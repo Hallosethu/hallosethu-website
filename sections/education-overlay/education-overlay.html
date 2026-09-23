@@ -1,0 +1,191 @@
+  <!-- ══════════════════════════════════════════
+     EDUCATION & CAREER FLOW OVERLAY
+══════════════════════════════════════════ -->
+  <div class="edu-overlay" id="eduOverlay">
+
+    <!-- Top bar -->
+    <div class="edu-top-bar">
+      <button class="edu-back-btn" id="eduBackBtn" onclick="eduGoBack()" style="display:none">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+      <div class="edu-bc" id="eduBc">
+        <span class="crumb" onclick="eduReset()">Education &amp; Career</span>
+      </div>
+      <button onclick="closeEduFlow()"
+        style="background:none;border:none;font-size:1.05rem;color:var(--gray-500);cursor:pointer;padding:6px;margin-left:auto"><i
+          class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="edu-body">
+
+      <!-- ── VIEW 1: TOP LEVEL (Education vs Career) ── -->
+      <div class="edu-view active" id="ev-top">
+        <div class="edu-band">
+          <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.55rem;position:relative;z-index:1">
+            <div
+              style="width:38px;height:38px;background:rgba(255,255,255,.18);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem">
+              <i class="fa-solid fa-graduation-cap"></i></div>
+            <span style="font-family:var(--font-head);font-weight:600;font-size:.82rem;opacity:.8">Education &amp;
+              Career</span>
+          </div>
+          <h1>Find the Right Path — Right Here in Vizag</h1>
+          <p>Schools, colleges, coaching, skills, jobs, and career support — all guided by your trusted local friend.
+            100% free.</p>
+          <div>
+            <span class="edu-band-badge"><i class="fa-solid fa-check"></i> 100% Free</span>
+            <span class="edu-band-badge"><i class="fa-solid fa-location-dot"></i> Vizag Only</span>
+            <span class="edu-band-badge"><i class="fa-solid fa-handshake"></i> No Commitments</span>
+          </div>
+        </div>
+
+        <!-- Search bar -->
+        <div style="position:relative;margin-bottom:1.5rem">
+          <i class="fa-solid fa-magnifying-glass"
+            style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gray-400)"></i>
+          <input type="text" placeholder="Search schools, coaching, jobs, skills..." readonly
+            onclick="eduShowView('ev-search')"
+            style="width:100%;padding:.88rem 1rem .88rem 2.85rem;border:1.5px solid var(--gray-200);border-radius:13px;font-family:var(--font-body);font-size:.9rem;cursor:pointer;background:var(--gray-100)">
+        </div>
+
+        <div class="seg-tabs" id="topTabs">
+          <button class="seg-tab active" onclick="filterTopTab(this,'all')">All</button>
+          <button class="seg-tab" onclick="filterTopTab(this,'education')"><i class="fa-solid fa-graduation-cap"></i>
+            Education</button>
+          <button class="seg-tab" onclick="filterTopTab(this,'career')"><i class="fa-solid fa-briefcase"></i>
+            Career</button>
+        </div>
+
+        <div class="seg-grid" id="topGrid">
+          <!-- EDUCATION CARDS -->
+          <div class="seg-card" data-group="education" onclick="eduOpenSeg('school')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(21,101,192,.1),rgba(30,136,229,.07));color:var(--blue)"><i
+                class="fa-solid fa-school"></i></div>
+            <h4>🏫 School Admissions</h4>
+            <div class="seg-sub">CBSE · ICSE · State · International</div>
+            <p>Shortlist the right school in Vizag, understand fees, and get scholarship guidance.</p>
+          </div>
+          <div class="seg-card" data-group="education" onclick="eduOpenSeg('college')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(245,124,0,.1),rgba(255,152,0,.07));color:var(--orange)"><i
+                class="fa-solid fa-university"></i></div>
+            <h4>🏛️ College Admissions</h4>
+            <div class="seg-sub">JEE · NEET · EAMCET · MBA · Arts</div>
+            <p>Counselling for all streams, entrance rounds, and seat allotment support in Vizag.</p>
+          </div>
+          <div class="seg-card" data-group="education" onclick="eduOpenSeg('coaching')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(21,101,192,.1),rgba(30,136,229,.07));color:var(--blue)"><i
+                class="fa-solid fa-chalkboard-user"></i></div>
+            <h4>📝 Coaching &amp; Tutoring</h4>
+            <div class="seg-sub">JEE · NEET · Home Tutors · English</div>
+            <p>Home tutors, JEE/NEET coaching centres, online learning, Spoken English in Vizag.</p>
+          </div>
+          <div class="seg-card" data-group="education" onclick="eduOpenSeg('abroad')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(245,124,0,.1),rgba(255,152,0,.07));color:var(--orange)"><i
+                class="fa-solid fa-globe"></i></div>
+            <h4>🌍 Study Abroad</h4>
+            <div class="seg-sub">USA · UK · Canada · Australia</div>
+            <p>Country selection, SOP help, GRE/IELTS coaching links, and visa guidance.</p>
+          </div>
+          <div class="seg-card" data-group="education" onclick="eduOpenSeg('skills')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(21,101,192,.1),rgba(30,136,229,.07));color:var(--blue)"><i
+                class="fa-solid fa-laptop-code"></i></div>
+            <h4>🧑‍💻 Skills &amp; Certifications</h4>
+            <div class="seg-sub">IT · Finance · Design · Healthcare</div>
+            <p>Vocational and professional certification courses available in Visakhapatnam.</p>
+          </div>
+          <!-- CAREER CARDS -->
+          <div class="seg-card" data-group="career" onclick="eduOpenSeg('career-guidance')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(245,124,0,.1),rgba(255,152,0,.07));color:var(--orange)"><i
+                class="fa-solid fa-compass"></i></div>
+            <h4>🧭 Career Guidance</h4>
+            <div class="seg-sub">Aptitude · Roadmap · Women Returners</div>
+            <p>Aptitude assessment, personalised career roadmap, and support for women returning to work.</p>
+          </div>
+          <div class="seg-card" data-group="career" onclick="eduOpenSeg('job-search')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(21,101,192,.1),rgba(30,136,229,.07));color:var(--blue)"><i
+                class="fa-solid fa-magnifying-glass"></i></div>
+            <h4>🔍 Job Search Support</h4>
+            <div class="seg-sub">Vizag Local · Remote · LinkedIn</div>
+            <p>Local Vizag jobs, remote roles, and guidance on LinkedIn &amp; Naukri profiles.</p>
+          </div>
+          <div class="seg-card" data-group="career" onclick="eduOpenSeg('resume')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(245,124,0,.1),rgba(255,152,0,.07));color:var(--orange)"><i
+                class="fa-solid fa-file-lines"></i></div>
+            <h4>📄 Resume &amp; Interview Prep</h4>
+            <div class="seg-sub">ATS Resume · Mock Interview · LinkedIn</div>
+            <p>ATS-optimised resumes, mock interviews, and LinkedIn profile optimisation.</p>
+          </div>
+          <div class="seg-card" data-group="career" onclick="eduOpenSeg('placement')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(21,101,192,.1),rgba(30,136,229,.07));color:var(--blue)"><i
+                class="fa-solid fa-handshake"></i></div>
+            <h4>🤝 Placement Assistance</h4>
+            <div class="seg-sub">Employers · Walk-in Drives · Sectors</div>
+            <p>Direct employer connections, walk-in drives, and sector-specific placement support.</p>
+          </div>
+          <div class="seg-card" data-group="career" onclick="eduOpenSeg('govt-exams')">
+            <div class="seg-card-ico"
+              style="background:linear-gradient(135deg,rgba(245,124,0,.1),rgba(255,152,0,.07));color:var(--orange)"><i
+                class="fa-solid fa-landmark"></i></div>
+            <h4>🏛️ Govt &amp; Competitive Exams</h4>
+            <div class="seg-sub">UPSC · APPSC · SSC · Banking · Railways</div>
+            <p>Coaching links, exam calendars, and preparation support for all major govt exams.</p>
+          </div>
+        </div>
+      </div><!-- /ev-top -->
+
+      <!-- ── VIEW 2: SUBSEGMENT DETAIL ── -->
+      <div class="edu-view" id="ev-detail">
+        <div id="subsegContent"></div>
+      </div>
+
+      <!-- ── VIEW 3: SEARCH ── -->
+      <div class="edu-view" id="ev-search">
+        <div
+          style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));border-radius:18px;padding:2.2rem 2rem;text-align:center;margin-bottom:1.6rem;position:relative;overflow:hidden">
+          <div
+            style="position:absolute;right:-35px;top:-35px;width:160px;height:160px;border-radius:50%;background:rgba(245,124,0,.15)">
+          </div>
+          <h2
+            style="font-family:var(--font-head);font-weight:800;font-size:1.6rem;color:#fff;margin-bottom:1rem;position:relative;z-index:1">
+            Find Education &amp; Career Help in Vizag</h2>
+          <div style="position:relative;max-width:520px;margin:0 auto;z-index:1">
+            <i class="fa-solid fa-magnifying-glass"
+              style="position:absolute;left:.95rem;top:50%;transform:translateY(-50%);color:var(--gray-400);font-size:1.05rem"></i>
+            <input id="eduSearchInput" type="text" placeholder="Type to search..." oninput="runEduSearch(this.value)"
+              style="width:100%;padding:.92rem .92rem .92rem 2.9rem;border-radius:13px;border:none;font-family:var(--font-body);font-size:.95rem;outline:none;box-shadow:0 4px 18px rgba(0,0,0,.15)">
+          </div>
+          <div
+            style="display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:1rem;position:relative;z-index:1">
+            <span onclick="runEduSearch('school')"
+              style="background:rgba(255,255,255,.15);color:#fff;padding:.28rem .75rem;border-radius:50px;font-size:.74rem;font-weight:600;font-family:var(--font-head);cursor:pointer">🏫
+              Schools</span>
+            <span onclick="runEduSearch('neet')"
+              style="background:rgba(255,255,255,.15);color:#fff;padding:.28rem .75rem;border-radius:50px;font-size:.74rem;font-weight:600;font-family:var(--font-head);cursor:pointer">⚕
+              NEET</span>
+            <span onclick="runEduSearch('jee')"
+              style="background:rgba(255,255,255,.15);color:#fff;padding:.28rem .75rem;border-radius:50px;font-size:.74rem;font-weight:600;font-family:var(--font-head);cursor:pointer">🔬
+              JEE</span>
+            <span onclick="runEduSearch('job')"
+              style="background:rgba(255,255,255,.15);color:#fff;padding:.28rem .75rem;border-radius:50px;font-size:.74rem;font-weight:600;font-family:var(--font-head);cursor:pointer">💼
+              Jobs</span>
+            <span onclick="runEduSearch('abroad')"
+              style="background:rgba(255,255,255,.15);color:#fff;padding:.28rem .75rem;border-radius:50px;font-size:.74rem;font-weight:600;font-family:var(--font-head);cursor:pointer">🌍
+              Abroad</span>
+            <span onclick="runEduSearch('govt')"
+              style="background:rgba(255,255,255,.15);color:#fff;padding:.28rem .75rem;border-radius:50px;font-size:.74rem;font-weight:600;font-family:var(--font-head);cursor:pointer">🏛
+              Govt Exams</span>
+          </div>
+        </div>
+        <div id="eduSearchResults"></div>
+      </div><!-- /ev-search -->
+
+    </div><!-- /edu-body -->
+  </div><!-- /edu-overlay -->

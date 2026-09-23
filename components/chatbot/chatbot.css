@@ -1,0 +1,653 @@
+    /* ── Hallosethu Chatbot — Brand Skin (Blue + Orange) ── */
+
+    /* Floating launcher button — gradient pill with animated glow */
+    #_hs_launcher {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #0D47A1, #1565C0, #1E88E5);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2px;
+      box-shadow: 0 6px 28px rgba(21, 101, 192, .55), 0 0 0 0 rgba(21, 101, 192, .3);
+      transition: all .25s;
+      animation: _hs_pulse_ring 2.8s ease-out infinite;
+    }
+
+    #_hs_launcher:hover {
+      background: linear-gradient(135deg, #E65100, #F57C00, #FF9800);
+      box-shadow: 0 8px 32px rgba(245, 124, 0, .55);
+      transform: scale(1.07) translateY(-2px);
+      border-radius: 22px;
+    }
+
+    @keyframes _hs_pulse_ring {
+      0% {
+        box-shadow: 0 6px 28px rgba(21, 101, 192, .55), 0 0 0 0 rgba(21, 101, 192, .35)
+      }
+
+      60% {
+        box-shadow: 0 6px 28px rgba(21, 101, 192, .4), 0 0 0 14px rgba(21, 101, 192, 0)
+      }
+
+      100% {
+        box-shadow: 0 6px 28px rgba(21, 101, 192, .55), 0 0 0 0 rgba(21, 101, 192, 0)
+      }
+    }
+
+    /* Custom "HS" logo icon inside launcher */
+    #_hs_logo_inner {
+      width: 36px;
+      height: 36px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #_hs_logo_inner .hs_h_left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 13px;
+      background: linear-gradient(180deg, #fff 60%, rgba(255, 255, 255, .6));
+      border-radius: 6px 0 0 6px;
+    }
+
+    #_hs_logo_inner .hs_h_right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 13px;
+      background: linear-gradient(180deg, rgba(255, 200, 100, .95) 60%, rgba(255, 152, 0, .8));
+      border-radius: 0 6px 6px 0;
+    }
+
+    #_hs_logo_inner .hs_h_arch {
+      position: absolute;
+      bottom: 3px;
+      left: 3px;
+      right: 3px;
+      height: 14px;
+      border: 3px solid rgba(255, 255, 255, .85);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+    }
+
+    #_hs_lico_text {
+      font-size: 8px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, .9);
+      letter-spacing: .5px;
+      font-family: -apple-system, sans-serif;
+      line-height: 1;
+    }
+
+    #_hs_launcher:hover #_hs_lico_text {
+      color: #fff
+    }
+
+    /* Notification badge */
+    #_hs_notif {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #E65100, #FF9800);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2.5px solid #fff;
+      box-shadow: 0 2px 8px rgba(230, 81, 0, .4);
+    }
+
+    /* Chat window */
+    #_hs_win {
+      position: fixed;
+      bottom: 104px;
+      right: 24px;
+      z-index: 9998;
+      width: 360px;
+      /* Caps to the viewport when 510px + the 104px bottom offset + a 36px
+         top margin don't fit — otherwise the fixed height pushes the panel's
+         top edge above y:0 on shorter browser windows. */
+      height: min(510px, calc(100vh - 140px));
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid rgba(21, 101, 192, .12);
+      box-shadow: 0 12px 48px rgba(13, 71, 161, .18), 0 2px 8px rgba(0, 0, 0, .08);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: scale(.9) translateY(18px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s, transform .25s;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    #_hs_win.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: scale(1) translateY(0)
+    }
+
+    /* Header — brand gradient */
+    #_hs_hdr {
+      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 55%, #1E88E5 100%);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #_hs_hdr::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(245, 124, 0, .18);
+      pointer-events: none;
+    }
+
+    /* Avatar in header */
+    ._hs_av {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(255, 255, 255, .25);
+      position: relative;
+      z-index: 1;
+    }
+
+    ._hs_av i {
+      color: #fff;
+      font-size: 20px
+    }
+
+    ._hs_hn {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+      z-index: 1
+    }
+
+    ._hs_hs {
+      font-size: 11px;
+      color: rgba(255, 255, 255, .85);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    ._hs_hs::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #6BE0C8;
+      display: inline-block;
+      box-shadow: 0 0 0 2px rgba(107, 224, 200, .3);
+      animation: _hs_blink 2s ease-in-out infinite;
+    }
+
+    @keyframes _hs_blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .5
+      }
+    }
+
+    #_hs_close {
+      margin-left: auto;
+      background: rgba(255, 255, 255, .12);
+      border: none;
+      cursor: pointer;
+      color: rgba(255, 255, 255, .8);
+      display: flex;
+      align-items: center;
+      padding: 6px;
+      border-radius: 8px;
+      transition: all .2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    #_hs_close:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .22)
+    }
+
+    /* Message area */
+    #_hs_msgs {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: linear-gradient(180deg, #F0F4FF 0%, #F8FAFF 100%);
+    }
+
+    #_hs_msgs::-webkit-scrollbar {
+      width: 4px
+    }
+
+    #_hs_msgs::-webkit-scrollbar-thumb {
+      background: rgba(21, 101, 192, .2);
+      border-radius: 2px
+    }
+
+    ._hs_msg {
+      max-width: 84%;
+      display: flex;
+      flex-direction: column;
+      gap: 3px
+    }
+
+    ._hs_msg.bot {
+      align-self: flex-start
+    }
+
+    ._hs_msg.user {
+      align-self: flex-end
+    }
+
+    ._hs_bub {
+      padding: 10px 14px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      border-radius: 16px
+    }
+
+    ._hs_msg.bot ._hs_bub {
+      background: #fff;
+      border: 1px solid rgba(21, 101, 192, .1);
+      color: #1a1a2e;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 2px 6px rgba(21, 101, 192, .06);
+    }
+
+    ._hs_msg.user ._hs_bub {
+      background: linear-gradient(135deg, #E65100, #F57C00);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 3px 10px rgba(230, 81, 0, .3);
+    }
+
+    ._hs_ts {
+      font-size: 10px;
+      color: #9aaccc
+    }
+
+    ._hs_msg.user ._hs_ts {
+      text-align: right
+    }
+
+    /* Bottom bar */
+    #_hs_bot {
+      flex-shrink: 0;
+      background: #fff;
+      border-top: 1px solid rgba(21, 101, 192, .08)
+    }
+
+    #_hs_chips {
+      padding: 10px 12px 6px
+    }
+
+    /* Service grid buttons */
+    ._hs_sgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px
+    }
+
+    ._hs_sc {
+      background: #F0F4FF;
+      border: 1.5px solid rgba(21, 101, 192, .12);
+      border-radius: 8px;
+      padding: 7px 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #1a1a2e;
+      font-family: inherit;
+      text-align: left;
+      transition: all .2s;
+    }
+
+    ._hs_sc:hover {
+      border-color: #1565C0;
+      background: linear-gradient(135deg, rgba(21, 101, 192, .08), rgba(245, 124, 0, .06));
+      color: #0D47A1;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(21, 101, 192, .12);
+    }
+
+    ._hs_sc i {
+      font-size: 15px;
+      color: #1565C0;
+      flex-shrink: 0;
+      transition: color .2s
+    }
+
+    ._hs_sc:hover i {
+      color: #E65100
+    }
+
+    /* Question chip pills */
+    ._hs_qw {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 4px 12px 8px
+    }
+
+    ._hs_qc {
+      font-size: 12px;
+      padding: 5px 11px;
+      border-radius: 20px;
+      border: 1.5px solid rgba(21, 101, 192, .35);
+      color: #1565C0;
+      background: transparent;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .18s;
+    }
+
+    ._hs_qc:hover {
+      background: linear-gradient(135deg, #1565C0, #1E88E5);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(21, 101, 192, .25);
+    }
+
+    ._hs_qc.muted {
+      border-color: rgba(0, 0, 0, .15);
+      color: #888
+    }
+
+    ._hs_qc.muted:hover {
+      background: #F0F4FF;
+      color: #1565C0;
+      border-color: rgba(21, 101, 192, .3)
+    }
+
+    ._hs_back {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 11.5px;
+      color: #7a8fb0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px 3px;
+      transition: color .2s;
+    }
+
+    ._hs_back:hover {
+      color: #1565C0
+    }
+
+    ._hs_sc_soon {
+      opacity: .65
+    }
+
+    ._hs_sc_soon i {
+      color: #9aaccc
+    }
+
+    ._hs_live_dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22C55E;
+      margin-left: 5px;
+      vertical-align: middle;
+      animation: livePulse 1.4s ease-in-out infinite
+    }
+
+    ._hs_soon_tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      background: rgba(245, 124, 0, .15);
+      color: #E65100;
+      border-radius: 4px;
+      padding: 1px 5px;
+      margin-left: 5px;
+      vertical-align: middle
+    }
+
+    /* Agent Connect card */
+    .hs-agent-card {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px
+    }
+
+    .hs-agent-title {
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #0D47A1;
+      margin-bottom: 2px
+    }
+
+    .hs-agent-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      font-family: inherit;
+      transition: all .18s;
+    }
+
+    .hs-agent-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .15)
+    }
+
+    .hs-agent-btn i {
+      font-size: 15px
+    }
+
+    .hs-agent-btn.call {
+      background: linear-gradient(135deg, #1565C0, #1E88E5);
+      color: #fff
+    }
+
+    .hs-agent-btn.whatsapp {
+      background: #25D366;
+      color: #fff
+    }
+
+    .hs-agent-btn.email {
+      background: #F0F4FF;
+      color: #1565C0;
+      border-color: rgba(21, 101, 192, .25)
+    }
+
+    ._hs_qc.hs-agent-chip {
+      border-color: #22C55E;
+      color: #16A34A
+    }
+
+    ._hs_qc.hs-agent-chip:hover {
+      background: linear-gradient(135deg, #16A34A, #22C55E);
+      color: #fff
+    }
+
+    /* Input row */
+    #_hs_irow {
+      display: flex;
+      gap: 8px;
+      padding: 8px 12px 10px;
+      align-items: flex-end
+    }
+
+    #_hs_inp {
+      flex: 1;
+      border: 1.5px solid rgba(21, 101, 192, .2);
+      border-radius: 20px;
+      padding: 9px 13px;
+      font-size: 13px;
+      resize: none;
+      max-height: 72px;
+      outline: none;
+      background: #F0F4FF;
+      color: #1a1a2e;
+      font-family: inherit;
+      transition: all .2s;
+    }
+
+    #_hs_inp:focus {
+      border-color: #1565C0;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(21, 101, 192, .1);
+    }
+
+    #_hs_inp::placeholder {
+      color: #a0b0cc
+    }
+
+    #_hs_sbtn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1565C0, #1E88E5);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all .2s;
+      box-shadow: 0 3px 10px rgba(21, 101, 192, .3);
+    }
+
+    #_hs_sbtn:hover {
+      background: linear-gradient(135deg, #E65100, #F57C00);
+      box-shadow: 0 4px 14px rgba(230, 81, 0, .35);
+      transform: scale(1.08);
+    }
+
+    #_hs_sbtn i {
+      color: #fff;
+      font-size: 17px
+    }
+
+    /* Footer */
+    #_hs_foot {
+      text-align: center;
+      font-size: 10.5px;
+      color: #aabbd0;
+      padding: 3px 0 7px
+    }
+
+    #_hs_foot a {
+      color: #1565C0;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    #_hs_foot a:hover {
+      color: #F57C00
+    }
+
+    /* Typing dots */
+    ._hs_dots span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7a9acc;
+      margin: 0 2px;
+      animation: _hsd 1.2s infinite;
+    }
+
+    ._hs_dots span:nth-child(2) {
+      animation-delay: .2s
+    }
+
+    ._hs_dots span:nth-child(3) {
+      animation-delay: .4s
+    }
+
+    @keyframes _hsd {
+
+      0%,
+      60%,
+      100% {
+        transform: translateY(0)
+      }
+
+      30% {
+        transform: translateY(-5px)
+      }
+    }
+
+    /* Responsive */
+    @media(max-width:420px) {
+      #_hs_win {
+        width: calc(100vw - 20px);
+        right: 10px;
+        bottom: 80px;
+        height: 72vh;
+        max-height: 540px
+      }
+
+      #_hs_launcher {
+        bottom: 16px;
+        right: 16px;
+        width: 58px;
+        height: 58px;
+        border-radius: 18px
+      }
+    }
+

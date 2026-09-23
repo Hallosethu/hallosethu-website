@@ -1,0 +1,192 @@
+    /* WELCOME POPUP — auto-shows once on page load, always stays below the nav (and the
+       announcement bar, if present) so it never covers, shifts, or breaks navigation. */
+    .welcome-popup-overlay {
+      position: fixed;
+      top: calc(72px + var(--announce-h, 0px));
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(13, 71, 161, .45);
+      backdrop-filter: blur(6px);
+      z-index: 950;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s, top .3s
+    }
+
+    .welcome-popup-overlay.open {
+      opacity: 1;
+      pointer-events: all
+    }
+
+    .welcome-popup {
+      background: white;
+      border-radius: var(--radius);
+      width: min(420px, 100%);
+      max-height: calc(100vh - 72px - var(--announce-h, 0px) - 3rem);
+      overflow-y: auto;
+      position: relative;
+      transform: scale(.93) translateY(16px);
+      transition: transform .35s;
+      box-shadow: var(--shadow-lg)
+    }
+
+    .welcome-popup-overlay.open .welcome-popup {
+      transform: scale(1) translateY(0)
+    }
+
+    .welcome-popup-band {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue) 55%, var(--blue-light));
+      padding: 2rem 1.8rem 1.6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .welcome-popup-band::before {
+      content: '';
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: rgba(245, 124, 0, .2)
+    }
+
+    .welcome-popup-close {
+      position: absolute;
+      top: .8rem;
+      right: .8rem;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .18);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .9);
+      transition: background .2s;
+      z-index: 1
+    }
+
+    .welcome-popup-close:hover {
+      background: rgba(255, 255, 255, .32)
+    }
+
+    .welcome-popup-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 100px;
+      padding: .3rem .9rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #FFB74D;
+      position: relative;
+      z-index: 1
+    }
+
+    .welcome-popup-band h3 {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      margin: .8rem 0 .4rem;
+      position: relative;
+      z-index: 1
+    }
+
+    .welcome-popup-band p {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .85);
+      position: relative;
+      z-index: 1
+    }
+
+    .welcome-popup-body {
+      padding: 1.6rem 1.8rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem
+    }
+
+    .welcome-popup-perks {
+      display: flex;
+      flex-direction: column;
+      gap: .55rem
+    }
+
+    .welcome-popup-perks li {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .86rem;
+      color: var(--gray-700)
+    }
+
+    .welcome-popup-perks i {
+      color: var(--blue);
+      font-size: .8rem
+    }
+
+    .welcome-popup-cta {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: .3rem
+    }
+
+    .welcome-popup-btn {
+      padding: .9rem;
+      background: linear-gradient(135deg, #1565C0, #1E88E5);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-head);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .3s;
+      font-size: .95rem;
+      box-shadow: 0 4px 14px rgba(21, 101, 192, .25)
+    }
+
+    .welcome-popup-btn:hover {
+      background: linear-gradient(135deg, #E65100, #F57C00);
+      box-shadow: 0 6px 20px rgba(245, 124, 0, .4)
+    }
+
+    .welcome-popup-later {
+      background: none;
+      border: none;
+      color: var(--gray-500);
+      font-size: .84rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center
+    }
+
+    .welcome-popup-later:hover {
+      color: var(--gray-700)
+    }
+
+    @media (max-width: 480px) {
+      .welcome-popup-band {
+        padding: 1.6rem 1.4rem 1.3rem
+      }
+
+      .welcome-popup-body {
+        padding: 1.3rem 1.4rem 1.5rem
+      }
+    }
+
